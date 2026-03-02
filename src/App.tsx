@@ -5,7 +5,7 @@ import About from "./components/About";
 import Work from "./components/Work";
 import Writing from "./components/Writing";
 import Contact from "./components/Contact";
-import Footer from "./components/footer"
+import Footer from "./components/Footer";
 import { useEffect } from "react";
 
 export default function App() {
