@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { useState, useEffect } from "react";
+import Magnetic from "./Magnetic";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -29,19 +30,29 @@ export default function Navbar() {
       }`}
     >
       <div className="px-8 flex justify-between items-center">
-        <a href="#" className="text-xl font-bold tracking-tighter hover:opacity-70 transition-opacity">
+        <motion.a 
+          href="#" 
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          className="text-xl font-bold tracking-tighter hover:opacity-70 transition-opacity"
+        >
           DJ
-        </a>
+        </motion.a>
         
-        <div className="hidden md:flex space-x-10">
+        <div className="hidden md:flex space-x-10 relative">
           {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors"
-            >
-              {link.name}
-            </a>
+            <div key={link.name}>
+              <Magnetic>
+                <motion.a
+                  href={link.href}
+                  whileHover={{ y: -2 }}
+                  className="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors relative group px-2 py-1"
+                >
+                  {link.name}
+                  <span className="absolute -bottom-1 left-2 w-0 h-[1px] bg-slate-900 transition-all duration-300 group-hover:w-[calc(100%-1rem)]" />
+                </motion.a>
+              </Magnetic>
+            </div>
           ))}
         </div>
 

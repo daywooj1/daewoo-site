@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "motion/react";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const categories = ["All", "Mobile", "Growth", "Consulting"];
 
@@ -40,14 +40,33 @@ const projects = [
 
 export default function Work() {
   const [activeCategory, setActiveCategory] = useState("All");
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const { currentTarget, clientX, clientY } = e;
+    const { left, top } = currentTarget.getBoundingClientRect();
+    setMousePos({ x: clientX - left, y: clientY - top });
+  };
 
   const filteredProjects = activeCategory === "All" 
     ? projects 
     : projects.filter(p => p.category === activeCategory);
 
   return (
-    <section id="work" className="bg-white">
-      <div className="section-container">
+    <section 
+      id="work" 
+      className="bg-white relative overflow-hidden group/work"
+      onMouseMove={handleMouseMove}
+    >
+      {/* Spotlight Effect */}
+      <div 
+        className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300 opacity-0 group-hover/work:opacity-100"
+        style={{
+          background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(226, 232, 240, 0.4), transparent 80%)`,
+        }}
+      />
+      
+      <div className="section-container relative z-10">
         <div className="space-y-12">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
             <div className="space-y-4">
@@ -89,11 +108,13 @@ export default function Work() {
                   onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 >
                   <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-slate-100 mb-6">
-                    <img
+                    <motion.img
                       src={project.image}
                       alt={project.title}
                       referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      whileHover={{ scale: 1.1, x: -5, y: -5 }}
+                      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                      className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center p-8">
                       <p className="text-white text-sm font-light leading-relaxed text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">

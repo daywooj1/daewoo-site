@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useEffect, useState } from "react";
+import Magnetic from "./Magnetic";
 
 export default function Hero() {
   const { scrollY } = useScroll();
@@ -35,13 +36,31 @@ export default function Hero() {
       >
         <div className="space-y-6">
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
             className="font-serif text-5xl md:text-8xl text-slate-900 leading-[1.1] tracking-tight"
           >
-            Building as a way of <br />
-            <span className="italic font-light text-slate-700">understanding why.</span>
+            {"Building as a way of".split(" ").map((word, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className="inline-block mr-4"
+              >
+                {word}
+              </motion.span>
+            ))}
+            <br />
+            <motion.span 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="italic font-light text-slate-700 block mt-2"
+            >
+              understanding why.
+            </motion.span>
           </motion.h1>
           
           <motion.div
@@ -50,7 +69,7 @@ export default function Hero() {
             transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="pt-8 space-y-2"
           >
-            <div className="text-sm font-bold uppercase tracking-[0.5em] text-slate-400">Day Jeong</div>
+            <div className="text-sm font-bold uppercase tracking-[0.5em] text-slate-400">Daewoo Jeong</div>
             <div className="text-[10px] font-light uppercase tracking-[0.3em] text-slate-500">Product · Systems · Strategy</div>
           </motion.div>
         </div>
@@ -61,22 +80,26 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-4"
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10"
       >
-        <span className="text-[10px] uppercase tracking-[0.3em] text-slate-400 font-medium">Scroll</span>
-        <div className="w-[1px] h-12 bg-slate-200 relative overflow-hidden">
-          <motion.div
-            animate={{
-              y: ["-100%", "100%"],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="absolute inset-0 bg-slate-400"
-          />
-        </div>
+        <Magnetic>
+          <div className="flex flex-col items-center gap-4 cursor-pointer group">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-slate-400 font-medium group-hover:text-slate-900 transition-colors">Scroll</span>
+            <div className="w-[1px] h-12 bg-slate-200 relative overflow-hidden">
+              <motion.div
+                animate={{
+                  y: ["-100%", "100%"],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="absolute inset-0 bg-slate-400"
+              />
+            </div>
+          </div>
+        </Magnetic>
       </motion.div>
     </section>
   );
