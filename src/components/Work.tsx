@@ -91,19 +91,16 @@ export default function Work() {
             </div>
           </div>
 
-          <motion.div 
-            layout
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            <AnimatePresence mode="popLayout">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <AnimatePresence>
               {filteredProjects.map((project) => (
                 <motion.div
                   key={project.id}
                   layout
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
                   className="group cursor-pointer bg-white rounded-2xl p-4 transition-all duration-500 hover:shadow-2xl hover:shadow-slate-200 hover:-translate-y-2 border border-transparent hover:border-slate-100"
                   onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 >
@@ -112,8 +109,8 @@ export default function Work() {
                       src={project.image}
                       alt={project.title}
                       referrerPolicy="no-referrer"
-                      whileHover={{ scale: 1.1, x: -5, y: -5 }}
-                      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center p-8">
@@ -139,7 +136,7 @@ export default function Work() {
                 </motion.div>
               ))}
             </AnimatePresence>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

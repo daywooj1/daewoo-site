@@ -82,24 +82,22 @@ export default function Hero() {
         transition={{ delay: 1.5, duration: 1 }}
         className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10"
       >
-        <Magnetic>
-          <div className="flex flex-col items-center gap-4 cursor-pointer group">
-            <span className="text-[10px] uppercase tracking-[0.3em] text-slate-400 font-medium group-hover:text-slate-900 transition-colors">Scroll</span>
-            <div className="w-[1px] h-12 bg-slate-200 relative overflow-hidden">
-              <motion.div
-                animate={{
-                  y: ["-100%", "100%"],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute inset-0 bg-slate-400"
-              />
-            </div>
+        <div className="flex flex-col items-center gap-4 cursor-pointer group">
+          <span className="text-[10px] uppercase tracking-[0.3em] text-slate-400 font-medium group-hover:text-slate-900 transition-colors">Scroll</span>
+          <div className="w-[1px] h-12 bg-slate-200 relative overflow-hidden">
+            <motion.div
+              animate={{
+                y: ["-100%", "100%"],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute inset-0 bg-slate-400"
+            />
           </div>
-        </Magnetic>
+        </div>
       </motion.div>
     </section>
   );
