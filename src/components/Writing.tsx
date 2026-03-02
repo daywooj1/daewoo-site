@@ -137,7 +137,7 @@ export default function Writing() {
               <div className="absolute inset-0 bg-radial from-slate-200/50 to-transparent" />
               <div className="absolute inset-0 flex items-center justify-center p-12">
                 <div className="w-full h-full border border-slate-200/50 rounded-lg flex items-center justify-center">
-                  <span className="font-serif italic text-4xl text-slate-300 select-none">Featured</span>
+                  <span className="font-serif italic text-4xl text-slate-500 select-none">Featured</span>
                 </div>
               </div>
             </div>
