@@ -44,14 +44,15 @@ export default function Hero() {
             <span className="italic font-light text-slate-700">understanding why.</span>
           </motion.h1>
           
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="text-lg md:text-xl text-slate-500 font-light max-w-2xl mx-auto leading-relaxed"
+            className="pt-8 space-y-2"
           >
-            I build products, write ideas, and explore the deeper questions behind why we create at all. This is a digital home for my work and my search for meaning.
-          </motion.p>
+            <div className="text-sm font-bold uppercase tracking-[0.5em] text-slate-400">Daewoo Jeong</div>
+            <div className="text-[10px] font-light uppercase tracking-[0.3em] text-slate-500">Product · Systems · Strategy</div>
+          </motion.div>
         </div>
       </motion.div>
 
