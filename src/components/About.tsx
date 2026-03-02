@@ -13,7 +13,7 @@ export default function About() {
         >
           <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-slate-100 shadow-2xl shadow-slate-200">
             <img 
-              src="/profile.jpg"
+              src="https://ais-dev-at4hoknnv3kthi3pwdegiu-242464314494.us-east1.run.app/daewoo.jpg" 
               alt="Daewoo Jeong" 
               referrerPolicy="no-referrer"
               className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
@@ -24,17 +24,14 @@ export default function About() {
             <div className="space-y-4">
               <h2 className="text-sm font-bold uppercase tracking-widest text-slate-400">About</h2>
               <div className="space-y-8 text-xl md:text-2xl font-light leading-relaxed text-slate-800">
-                <p>
-                  I build products with clarity and intention.
+                <p className="font-bold">
+                  I build products that make sense.
                 </p>
                 <p>
-                  I am drawn to the mechanics of decision making, user behavior, and system design. My work focuses on simplifying complex problems, aligning teams around measurable outcomes, and delivering products that are both intuitive and deeply considered.
+                  I’m obsessed with the "why" behind how people move through the world. My work is about stripping away the noise to find the elegant logic underneath. Whether I'm untangling a complex system or aligning a team, I play for measurable impact and intuitive design.
                 </p>
                 <p>
-                  Climbing and chess reinforce the same principles I apply in product. Structured thinking. Focus under pressure. Strategic execution.
-                </p>
-                <p className="text-slate-500 text-lg md:text-xl">
-                  I believe the best products feel effortless, but are built on rigorous thinking underneath.
+                  When I’m not building, I’m usually climbing or playing chess. They’re the same game to me: solving for the next move, maintaining focus under pressure, and executing with intent. I believe the best products feel like magic, but they’re powered by a lot of grit and even more thinking.
                 </p>
               </div>
             </div>
