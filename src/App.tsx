@@ -49,8 +49,9 @@ export default function App() {
         <Work />
         <Writing />
         <Contact />
-        <Footer />
       </main>
+
+      <Footer />
     </div>
   );
 }
