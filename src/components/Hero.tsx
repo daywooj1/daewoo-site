@@ -47,7 +47,7 @@ export default function Hero() {
                 ease: premiumEase,
                 delay: 0.1 
               }}
-              className="font-serif text-5xl md:text-8xl text-slate-900 leading-[1.1] tracking-tight"
+              className="font-serif text-5xl md:text-8xl text-slate-900 leading-[1.1] tracking-tight pb-4"
             >
               Building as a way of <br />
               <span className="italic font-light text-slate-700">understanding why.</span>
