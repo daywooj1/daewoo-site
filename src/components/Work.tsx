@@ -1,5 +1,6 @@
-import { motion, AnimatePresence } from "motion/react";
-import React, { useState } from "react";
+import { motion, AnimatePresence, useMotionValue, useTransform } from "motion/react";
+import React, { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const categories = ["All", "Mobile", "Growth", "Consulting"];
 
@@ -36,11 +37,37 @@ const projects = [
     preview: "Pushing the boundaries of ergonomics and spatial awareness in mobile design.",
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=1000",
   },
+  {
+    id: 5,
+    title: "Spatial Audio App",
+    category: "Mobile",
+    description: "Designing an immersive audio experience for high-fidelity listening.",
+    preview: "Visualizing soundscapes through generative art and spatial interactions.",
+    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=1000",
+  },
+  {
+    id: 6,
+    title: "Retention Engine",
+    category: "Growth",
+    description: "Building a predictive modeling tool for subscription-based businesses.",
+    preview: "Reducing churn through automated behavioral interventions.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000",
+  }
 ];
 
 export default function Work() {
   const [activeCategory, setActiveCategory] = useState("All");
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  const filteredProjects = activeCategory === "All" 
+    ? projects 
+    : projects.filter(p => p.category === activeCategory);
+
+  // Reset index when category changes
+  useEffect(() => {
+    setCurrentIndex(0);
+  }, [activeCategory]);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     const { currentTarget, clientX, clientY } = e;
@@ -48,14 +75,22 @@ export default function Work() {
     setMousePos({ x: clientX - left, y: clientY - top });
   };
 
-  const filteredProjects = activeCategory === "All" 
-    ? projects 
-    : projects.filter(p => p.category === activeCategory);
+  const next = () => {
+    if (currentIndex < filteredProjects.length - 1) {
+      setCurrentIndex(prev => prev + 1);
+    }
+  };
+
+  const prev = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(prev => prev - 1);
+    }
+  };
 
   return (
     <section 
       id="work" 
-      className="bg-white relative overflow-hidden group/work"
+      className="bg-[#F4F6F8] border-t border-slate-200/40 relative overflow-hidden group/work py-24 md:py-32"
       onMouseMove={handleMouseMove}
     >
       {/* Spotlight Effect */}
@@ -67,10 +102,10 @@ export default function Work() {
       />
       
       <div className="section-container relative z-10">
-        <div className="space-y-12">
+        <div className="space-y-20">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
             <div className="space-y-4">
-              <h2 className="text-sm font-bold uppercase tracking-widest text-slate-400">Selected Work</h2>
+              <h2 className="text-sm font-bold uppercase tracking-widest text-slate-500">Selected Work</h2>
               <h3 className="text-4xl font-bold text-slate-900">Curated Experiments</h3>
             </div>
 
@@ -91,51 +126,103 @@ export default function Work() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <AnimatePresence>
-              {filteredProjects.map((project) => (
-                <motion.div
-                  key={project.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
-                  className="group cursor-pointer bg-white rounded-2xl p-4 transition-all duration-500 hover:shadow-2xl hover:shadow-slate-200 hover:-translate-y-2 border border-transparent hover:border-slate-100"
-                  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                >
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-slate-100 mb-6">
-                    <motion.img
-                      src={project.image}
-                      alt={project.title}
-                      referrerPolicy="no-referrer"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center p-8">
-                      <p className="text-white text-sm font-light leading-relaxed text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                        {project.preview}
-                      </p>
-                    </div>
-                  </div>
+          {/* 3D Carousel Container */}
+          <div className="relative h-[500px] w-full flex items-center justify-center perspective-[2000px]">
+            <div className="relative w-full max-w-4xl h-full flex items-center justify-center">
+              <AnimatePresence mode="popLayout">
+                {filteredProjects.map((project, index) => {
+                  const offset = index - currentIndex;
+                  const absOffset = Math.abs(offset);
+                  
+                  // Only render visible cards for performance
+                  if (absOffset > 2) return null;
 
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 group-hover:text-accent transition-colors">
-                        {project.category}
-                      </span>
-                    </div>
-                    <h4 className="text-lg font-bold text-slate-900">
-                      {project.title}
-                    </h4>
-                    <p className="text-sm text-slate-500 font-light leading-snug">
-                      {project.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
+                  return (
+                    <motion.div
+                      key={project.id}
+                      initial={{ opacity: 0, scale: 0.8, x: offset * 400 }}
+                      animate={{ 
+                        opacity: 1 - absOffset * 0.3,
+                        scale: 1 - absOffset * 0.15,
+                        x: offset * 320,
+                        rotateY: offset * -45,
+                        z: -absOffset * 300,
+                        zIndex: 10 - absOffset,
+                      }}
+                      exit={{ opacity: 0, scale: 0.8, x: offset * 400 }}
+                      transition={{ 
+                        type: "spring",
+                        stiffness: 260,
+                        damping: 25,
+                      }}
+                      className="absolute w-[320px] md:w-[450px] aspect-[4/5] md:aspect-[4/3] cursor-pointer"
+                      onClick={() => {
+                        if (offset === 0) {
+                           // Open project details or scroll
+                        } else {
+                          setCurrentIndex(index);
+                        }
+                      }}
+                    >
+                      <div className="relative w-full h-full bg-white rounded-3xl overflow-hidden shadow-2xl shadow-slate-200/50 border border-slate-100 group/card">
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          referrerPolicy="no-referrer"
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-105"
+                        />
+                        
+                        {/* Overlay Content */}
+                        <div className={`absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent transition-opacity duration-500 ${offset === 0 ? 'opacity-100' : 'opacity-0'}`}>
+                          <div className="absolute bottom-0 left-0 p-8 space-y-2">
+                            <span className="text-[10px] font-bold uppercase tracking-widest text-slate-300">
+                              {project.category}
+                            </span>
+                            <h4 className="text-2xl font-bold text-white">
+                              {project.title}
+                            </h4>
+                            <p className="text-sm text-slate-300 font-light line-clamp-2">
+                              {project.description}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </AnimatePresence>
+            </div>
+
+            {/* Navigation Controls */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex items-center gap-8 z-20">
+              <button 
+                onClick={prev}
+                disabled={currentIndex === 0}
+                className="w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-slate-900 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-50 transition-colors"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+              
+              <div className="flex gap-2">
+                {filteredProjects.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrentIndex(i)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      currentIndex === i ? "w-8 bg-slate-900" : "bg-slate-200"
+                    }`}
+                  />
+                ))}
+              </div>
+
+              <button 
+                onClick={next}
+                disabled={currentIndex === filteredProjects.length - 1}
+                className="w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-slate-900 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-50 transition-colors"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+            </div>
           </div>
         </div>
       </div>

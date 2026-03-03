@@ -112,12 +112,12 @@ export default function Writing() {
   }, [isModalOpen]);
 
   return (
-    <section id="writing" className="bg-[#fdfdfd] py-24 md:py-32">
+    <section id="writing" className="bg-white border-t border-slate-200/40 py-24 md:py-32">
       <div className="section-container space-y-20">
         {/* Header */}
         <div className="space-y-4">
-          <h2 className="text-sm font-medium uppercase tracking-[0.3em] text-slate-400">Writing</h2>
-          <p className="text-xl text-slate-600 font-light">
+          <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-slate-500">Writing</h2>
+          <p className="text-xl text-slate-900 font-light">
             A collection of ideas on building, meaning, and discipline.
           </p>
         </div>
@@ -137,7 +137,7 @@ export default function Writing() {
               <div className="absolute inset-0 bg-radial from-slate-200/50 to-transparent" />
               <div className="absolute inset-0 flex items-center justify-center p-12">
                 <div className="w-full h-full border border-slate-200/50 rounded-lg flex items-center justify-center">
-                  <span className="font-serif italic text-4xl text-slate-500 select-none">Featured</span>
+                  <span className="font-serif italic text-4xl text-slate-300 select-none">Featured</span>
                 </div>
               </div>
             </div>

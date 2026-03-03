@@ -1,6 +1,5 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useEffect, useState } from "react";
-import Magnetic from "./Magnetic";
 
 export default function Hero() {
   const { scrollY } = useScroll();
@@ -69,8 +68,8 @@ export default function Hero() {
             transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="pt-8 space-y-2"
           >
-            <div className="text-sm font-bold uppercase tracking-[0.5em] text-slate-400">Day Jeong</div>
-            <div className="text-[10px] font-light uppercase tracking-[0.3em] text-slate-500">Product · Systems · Strategy</div>
+            <div className="text-sm font-bold uppercase tracking-[0.5em] text-slate-500">Daewoo Jeong</div>
+            <div className="text-[10px] font-light uppercase tracking-[0.3em] text-slate-600">Product · Systems · Strategy</div>
           </motion.div>
         </div>
       </motion.div>

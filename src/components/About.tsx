@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 
 export default function About() {
   return (
-    <section id="about" className="bg-white">
+    <section id="about" className="bg-white border-t border-slate-200/40">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -13,7 +13,7 @@ export default function About() {
         >
           <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-slate-100 shadow-2xl shadow-slate-200">
             <img 
-           src="/profile.jpg"
+              src="/profile.jpg" 
               alt="Daewoo Jeong" 
               referrerPolicy="no-referrer"
               className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
@@ -22,8 +22,8 @@ export default function About() {
           
           <div className="space-y-12">
             <div className="space-y-4">
-              <h2 className="text-sm font-bold uppercase tracking-widest text-slate-400">About</h2>
-              <div className="space-y-8 text-xl md:text-2xl font-light leading-relaxed text-slate-800">
+              <h2 className="text-sm font-bold uppercase tracking-widest text-slate-500">About</h2>
+              <div className="space-y-8 text-xl md:text-2xl font-light leading-relaxed text-slate-900">
                 <p className="font-bold">
                   I build products that make sense.
                 </p>
