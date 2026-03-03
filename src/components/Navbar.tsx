@@ -20,7 +20,7 @@ export default function Navbar() {
     { name: "Work", href: "#work" },
     { name: "Writing", href: "#writing" },
     { name: "Contact", href: "#contact" },
-    { name: "Resume", href: "/resume.pdf#zoom=page-fit", external: true },
+    { name: "Resume", href: "/resume.pdf#view=Fit", external: true },
   ];
 
   return (
