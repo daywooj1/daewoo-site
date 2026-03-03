@@ -166,9 +166,8 @@ export default function Work() {
                       }}
                       exit={{ opacity: 0, scale: 0.8, x: offset * 400 }}
                       transition={{ 
-                        type: "spring",
-                        stiffness: 260,
-                        damping: 25,
+                        duration: 0.8,
+                        ease: [0.22, 1, 0.36, 1]
                       }}
                       className="absolute w-[320px] md:w-[450px] aspect-[4/5] md:aspect-[4/3] cursor-grab active:cursor-grabbing"
                       onClick={() => {

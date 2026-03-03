@@ -124,10 +124,13 @@ export default function Writing() {
 
         {/* Featured Essay */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ 
+            duration: 0.8,
+            ease: [0.22, 1, 0.36, 1]
+          }}
           className="group relative bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-500"
         >
           <div className="grid md:grid-cols-2 min-h-[400px]">

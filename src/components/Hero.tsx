@@ -4,32 +4,19 @@ export default function Hero() {
   const { scrollY } = useScroll();
   const shouldReduceMotion = useReducedMotion();
   
-  // Extremely subtle parallax effect (max 30px)
-  const yParallax = useTransform(scrollY, [0, 500], [0, 30]);
+  // Extremely subtle parallax effect (max 15px)
+  const yParallax = useTransform(scrollY, [0, 500], [0, 15]);
   const opacityScroll = useTransform(scrollY, [0, 300], [1, 0]);
 
-  const premiumEase = [0.22, 1, 0.36, 1];
-  // Use a CSS cubic-bezier string and cast to any to satisfy the motion typing for `ease`
-  const premiumEaseStr: any = "cubic-bezier(0.22, 1, 0.36, 1)";
-  const animationDuration = 0.9;
-  const yOffset = shouldReduceMotion ? 0 : 25;
+  const premiumEase = [0.22, 1, 0.36, 1] as const;
+  const animationDuration = 0.8;
+  const yOffset = shouldReduceMotion ? 0 : 12;
 
   return (
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#fdfdfd]">
       {/* Background Texture/Gradient */}
       <div className="absolute inset-0 z-0 opacity-30 pointer-events-none">
-        <motion.div 
-          animate={shouldReduceMotion ? {} : {
-            scale: [1, 1.02, 1],
-            opacity: [0.2, 0.4, 0.2],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="absolute inset-0 bg-radial from-slate-200/40 via-transparent to-transparent blur-3xl"
-        />
+        <div className="absolute inset-0 bg-radial from-slate-200/40 via-transparent to-transparent blur-3xl" />
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')] opacity-10" />
       </div>
 
@@ -46,7 +33,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
                 duration: animationDuration, 
-                ease: premiumEaseStr,
+                ease: premiumEase,
                 delay: 0.1 
               }}
               className="font-serif text-5xl md:text-8xl text-slate-900 leading-[1.1] tracking-tight pb-4"
@@ -63,8 +50,8 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
                 duration: animationDuration, 
-                ease: premiumEaseStr,
-                delay: 0.3 
+                ease: premiumEase,
+                delay: 0.2 
               }}
               className="text-sm font-bold uppercase tracking-[0.5em] text-slate-500"
             >
@@ -77,8 +64,8 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
                 duration: animationDuration, 
-                ease: premiumEaseStr,
-                delay: 0.45 
+                ease: premiumEase,
+                delay: 0.3 
               }}
               className="text-[10px] font-light uppercase tracking-[0.3em] text-slate-600"
             >
@@ -90,12 +77,12 @@ export default function Hero() {
 
       {/* 4. Scroll Indicator */}
       <motion.div
-        initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 10 }}
+        initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ 
-          delay: 1.2, 
+          delay: 0.8, 
           duration: 1,
-          ease: premiumEaseStr
+          ease: premiumEase
         }}
         className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10"
       >
