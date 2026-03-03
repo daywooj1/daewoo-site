@@ -24,20 +24,23 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      layout
       initial={{ y: -100, x: "-50%" }}
-      animate={{ y: 0, x: "-50%" }}
+      animate={{ 
+        y: 0, 
+        x: "-50%",
+        borderRadius: isOpen ? "24px" : "9999px",
+        paddingTop: scrolled || isOpen ? "16px" : "24px",
+        paddingBottom: scrolled || isOpen ? "16px" : "24px",
+      }}
       transition={{ 
-        duration: 0.5, 
+        duration: 0.6, 
         ease: [0.22, 1, 0.36, 1],
-        layout: { duration: 0.3 }
+        borderRadius: { duration: 0.4 }
       }}
       className={`fixed top-6 left-1/2 z-50 w-[calc(100%-3rem)] max-w-[1100px] ${
-        isOpen ? "rounded-3xl" : "rounded-full"
-      } ${
         scrolled || isOpen
-          ? "py-4 glass shadow-lg shadow-slate-200/50" 
-          : "py-6 bg-white/50 backdrop-blur-sm border border-white/20"
+          ? "glass shadow-lg shadow-slate-200/50" 
+          : "bg-white/50 backdrop-blur-sm border border-white/20"
       }`}
     >
       <div className="px-8 flex justify-between items-center">
@@ -76,14 +79,13 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      <AnimatePresence initial={false}>
+      <AnimatePresence>
         {isOpen && (
           <motion.div
-            key="mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="md:hidden overflow-hidden"
           >
             <div className="px-8 pb-8 pt-4 flex flex-col space-y-6">
