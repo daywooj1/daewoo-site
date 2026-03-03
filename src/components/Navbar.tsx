@@ -1,14 +1,19 @@
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Close menu when clicking a link
+  const handleLinkClick = () => setIsOpen(false);
 
   const navLinks = [
     { name: "About", href: "#about" },
@@ -22,8 +27,10 @@ export default function Navbar() {
       initial={{ y: -100, x: "-50%" }}
       animate={{ y: 0, x: "-50%" }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-6 left-1/2 z-50 w-[calc(100%-3rem)] max-w-[1100px] transition-all duration-500 rounded-full ${
-        scrolled 
+      className={`fixed top-6 left-1/2 z-50 w-[calc(100%-3rem)] max-w-[1100px] transition-all duration-500 ${
+        isOpen ? "rounded-3xl" : "rounded-full"
+      } ${
+        scrolled || isOpen
           ? "py-4 glass shadow-lg shadow-slate-200/50" 
           : "py-6 bg-white/50 backdrop-blur-sm border border-white/20"
       }`}
@@ -53,14 +60,44 @@ export default function Navbar() {
         </div>
 
         <div className="md:hidden">
-          {/* Mobile menu could go here, but keeping it minimal as requested */}
-          <button className="text-slate-900">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+          <button 
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-slate-900 p-2 -mr-2 focus:outline-none"
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="md:hidden overflow-hidden"
+          >
+            <div className="px-8 pb-8 pt-4 flex flex-col space-y-6">
+              {navLinks.map((link) => (
+                <motion.a
+                  key={link.name}
+                  href={link.href}
+                  onClick={handleLinkClick}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="text-lg font-medium text-slate-600 hover:text-slate-900 transition-colors"
+                >
+                  {link.name}
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 }
