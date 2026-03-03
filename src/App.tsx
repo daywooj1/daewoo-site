@@ -50,6 +50,8 @@ export default function App() {
         <Writing />
         <Contact />
       </main>
+
+      <Footer />
     </div>
   );
 }

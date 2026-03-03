@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 
 export default function Footer() {
   return (
-    <Footer className="bg-white py-24 border-t border-slate-200/40">
+    <footer className="bg-white py-24 border-t border-slate-200/40">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0 }}
@@ -14,7 +14,7 @@ export default function Footer() {
           <div className="text-[10px] font-light uppercase tracking-[0.3em] text-slate-400">© 2026</div>
         </motion.div>
       </div>
-    </Footer>
+    </footer>
   );
 }
 
