@@ -161,7 +161,7 @@ export default function Contact() {
                       placeholder="How can we collaborate?"
                       required
                       disabled={status === 'loading'}
-                      className="w-full bg-[#F8F9FA] border border-slate-200 rounded-xl px-6 py-4 text-slate-800 placeholder:text-slate-700 focus:ring-2 focus:ring-[#1A1F2C]/5 transition-all outline-none resize-none disabled:opacity-50"
+                      className="w-full bg-[#F8F9FA] border border-slate-200 rounded-xl px-6 py-4 text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#1A1F2C]/5 transition-all outline-none resize-none disabled:opacity-50"
                     />
                   </div>
 
