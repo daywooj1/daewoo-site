@@ -20,6 +20,7 @@ export default function Navbar() {
     { name: "Work", href: "#work" },
     { name: "Writing", href: "#writing" },
     { name: "Contact", href: "#contact" },
+    { name: "Resume", href: "/resume.pdf", external: true },
   ];
 
   return (
@@ -58,6 +59,8 @@ export default function Navbar() {
             <motion.a
               key={link.name}
               href={link.href}
+              target={link.external ? "_blank" : undefined}
+              rel={link.external ? "noopener noreferrer" : undefined}
               whileHover={{ y: -2 }}
               className="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors relative group px-2 py-1"
             >
@@ -93,6 +96,8 @@ export default function Navbar() {
                 <motion.a
                   key={link.name}
                   href={link.href}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
                   onClick={handleLinkClick}
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
