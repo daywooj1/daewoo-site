@@ -25,14 +25,22 @@ export default function Navbar() {
   return (
     <motion.nav
       initial={{ y: -100, x: "-50%" }}
-      animate={{ y: 0, x: "-50%" }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-6 left-1/2 z-50 w-[calc(100%-3rem)] max-w-[1100px] transition-all duration-500 ${
-        isOpen ? "rounded-3xl" : "rounded-full"
-      } ${
+      animate={{ 
+        y: 0, 
+        x: "-50%",
+        borderRadius: isOpen ? "24px" : "9999px",
+        paddingTop: scrolled || isOpen ? "16px" : "24px",
+        paddingBottom: scrolled || isOpen ? "16px" : "24px",
+      }}
+      transition={{ 
+        duration: 0.6, 
+        ease: [0.22, 1, 0.36, 1],
+        borderRadius: { duration: 0.4 }
+      }}
+      className={`fixed top-6 left-1/2 z-50 w-[calc(100%-3rem)] max-w-[1100px] ${
         scrolled || isOpen
-          ? "py-4 glass shadow-lg shadow-slate-200/50" 
-          : "py-6 bg-white/50 backdrop-blur-sm border border-white/20"
+          ? "glass shadow-lg shadow-slate-200/50" 
+          : "bg-white/50 backdrop-blur-sm border border-white/20"
       }`}
     >
       <div className="px-8 flex justify-between items-center">

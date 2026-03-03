@@ -192,7 +192,7 @@ export default function Writing() {
           </div>
 
           {/* List View */}
-          <div className="space-y-4">
+          <div className="grid md:grid-cols-2 gap-4">
             <AnimatePresence mode="popLayout">
               {filteredArticles.map((article, index) => (
                 <motion.div
@@ -205,28 +205,25 @@ export default function Writing() {
                     delay: index * 0.05,
                     ease: [0.22, 1, 0.36, 1]
                   }}
-                  className="group relative p-6 md:p-8 bg-white border border-slate-100 rounded-2xl hover:border-slate-300 hover:shadow-xl hover:shadow-slate-200/40 transition-all duration-500 cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-6"
+                  className="group relative p-6 bg-white border border-slate-100 rounded-2xl hover:border-slate-300 hover:shadow-xl hover:shadow-slate-200/40 transition-all duration-500 cursor-pointer flex flex-col justify-between gap-6"
                 >
-                  <div className="flex-1 space-y-3">
+                  <div className="space-y-3">
                     <div className="flex items-center gap-3 text-[9px] uppercase tracking-widest text-slate-400 font-bold">
                       <span className="text-slate-900 bg-slate-50 px-2 py-0.5 rounded">{article.category}</span>
                       <span className="w-1 h-1 rounded-full bg-slate-200" />
                       <span>{article.date}</span>
                     </div>
-                    <h4 className="font-serif text-2xl text-slate-900 group-hover:text-slate-700 transition-colors">
+                    <h4 className="font-serif text-xl text-slate-900 group-hover:text-slate-700 transition-colors leading-snug">
                       {article.title}
                     </h4>
-                  </div>
-                  
-                  <div className="md:w-2/5">
                     <p className="text-sm text-slate-500 font-light leading-relaxed line-clamp-2">
                       {article.subtitle}
                     </p>
                   </div>
-
-                  <div className="flex items-center justify-end">
-                    <div className="w-10 h-10 rounded-full border border-slate-100 flex items-center justify-center group-hover:bg-slate-900 group-hover:border-slate-900 transition-all duration-500">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-slate-300 group-hover:text-white transition-colors">
+                  
+                  <div className="flex items-center justify-end mt-auto">
+                    <div className="w-8 h-8 rounded-full border border-slate-100 flex items-center justify-center group-hover:bg-slate-900 group-hover:border-slate-900 transition-all duration-500">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-slate-300 group-hover:text-white transition-colors">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                       </svg>
                     </div>
@@ -254,7 +251,7 @@ export default function Writing() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 30, scale: 0.98 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="relative w-full max-w-4xl h-full md:h-auto md:max-h-[85vh] bg-[#fdfdfd] md:rounded-3xl overflow-hidden shadow-2xl flex flex-col"
+              className="relative w-full max-w-5xl h-full md:h-auto md:max-h-[90vh] bg-[#fdfdfd] md:rounded-3xl overflow-hidden shadow-2xl flex flex-col"
             >
               {/* Modal Header - Sticky */}
               <div className="sticky top-0 z-20 bg-[#fdfdfd]/80 backdrop-blur-md px-6 py-4 md:px-12 md:py-8 border-b border-slate-100 flex justify-between items-center">
