@@ -1,22 +1,48 @@
-import { motion } from "motion/react";
-import { Mail, Send, Check } from "lucide-react";
-import { FormEvent, useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { Mail, Send, Check, Loader2, AlertCircle } from "lucide-react";
+import { FormEvent, useState, useRef } from "react";
 
 export default function Contact() {
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState("");
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    if (status === 'loading') return;
+
+    setStatus('loading');
+    setErrorMessage("");
+
     const formData = new FormData(e.target as HTMLFormElement);
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const message = formData.get("message");
-    
-    const mailtoUrl = `mailto:jeongdaewoo@gmail.com?subject=Collaboration from ${name}&body=Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
-    
-    window.location.href = mailtoUrl;
-    setSent(true);
-    setTimeout(() => setSent(false), 3000);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const response = await fetch('/api/email_send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to send message');
+      }
+
+      setStatus('success');
+      formRef.current?.reset();
+      setTimeout(() => setStatus('idle'), 5000);
+    } catch (err: any) {
+      console.error('Contact form error:', err);
+      setStatus('error');
+      setErrorMessage(err.message || "Something went wrong. Please try again.");
+      setTimeout(() => setStatus('idle'), 5000);
+    }
   };
 
   return (
@@ -59,7 +85,7 @@ export default function Contact() {
             viewport={{ once: true }}
             className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-slate-100"
           >
-            <form onSubmit={handleSubmit} className="space-y-8">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-8">
               <div className="space-y-2">
                 <label htmlFor="name" className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
                   Name
@@ -70,7 +96,8 @@ export default function Contact() {
                   name="name"
                   placeholder="Your name"
                   required
-                  className="w-full bg-[#F8F9FA] border-none rounded-xl px-6 py-4 text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#1A1F2C]/5 transition-all outline-none"
+                  disabled={status === 'loading'}
+                  className="w-full bg-[#F8F9FA] border-none rounded-xl px-6 py-4 text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#1A1F2C]/5 transition-all outline-none disabled:opacity-50"
                 />
               </div>
 
@@ -84,7 +111,8 @@ export default function Contact() {
                   name="email"
                   placeholder="your@email.com"
                   required
-                  className="w-full bg-[#F8F9FA] border-none rounded-xl px-6 py-4 text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#1A1F2C]/5 transition-all outline-none"
+                  disabled={status === 'loading'}
+                  className="w-full bg-[#F8F9FA] border-none rounded-xl px-6 py-4 text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#1A1F2C]/5 transition-all outline-none disabled:opacity-50"
                 />
               </div>
 
@@ -98,25 +126,85 @@ export default function Contact() {
                   rows={4}
                   placeholder="How can we collaborate?"
                   required
-                  className="w-full bg-[#F8F9FA] border-none rounded-xl px-6 py-4 text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#1A1F2C]/5 transition-all outline-none resize-none"
+                  disabled={status === 'loading'}
+                  className="w-full bg-[#F8F9FA] border-none rounded-xl px-6 py-4 text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#1A1F2C]/5 transition-all outline-none resize-none disabled:opacity-50"
                 />
               </div>
 
-              <button
-                type="submit"
-                className={`w-full rounded-xl py-4 font-semibold flex items-center justify-center gap-3 transition-all active:scale-[0.98] ${
-                  sent 
-                    ? "bg-emerald-500 text-white" 
-                    : "bg-[#0F172A] text-white hover:bg-[#1E293B]"
-                }`}
-              >
-                <span>{sent ? "Message Sent" : "Send Message"}</span>
-                {sent ? <Check className="w-4 h-4" /> : <Send className="w-4 h-4" />}
-              </button>
+              <div className="space-y-4">
+                <button
+                  type="submit"
+                  disabled={status === 'loading'}
+                  className={`w-full rounded-xl py-4 font-semibold flex items-center justify-center gap-3 transition-all active:scale-[0.98] disabled:cursor-not-allowed ${
+                    status === 'success' 
+                      ? "bg-emerald-500 text-white" 
+                      : status === 'error'
+                      ? "bg-rose-500 text-white"
+                      : "bg-[#0F172A] text-white hover:bg-[#1E293B]"
+                  }`}
+                >
+                  <AnimatePresence mode="wait">
+                    {status === 'loading' ? (
+                      <motion.div
+                        key="loading"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.8 }}
+                        className="flex items-center gap-2"
+                      >
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <span>Sending...</span>
+                      </motion.div>
+                    ) : status === 'success' ? (
+                      <motion.div
+                        key="success"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        className="flex items-center gap-2"
+                      >
+                        <Check className="w-4 h-4" />
+                        <span>Message Sent</span>
+                      </motion.div>
+                    ) : status === 'error' ? (
+                      <motion.div
+                        key="error"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        className="flex items-center gap-2"
+                      >
+                        <AlertCircle className="w-4 h-4" />
+                        <span>Error Sending</span>
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="idle"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="flex items-center gap-2"
+                      >
+                        <Send className="w-4 h-4" />
+                        <span>Send Message</span>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </button>
+
+                {status === 'error' && (
+                  <motion.p
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-rose-500 text-xs text-center font-medium"
+                  >
+                    {errorMessage}
+                  </motion.p>
+                )}
+              </div>
             </form>
           </motion.div>
         </div>
       </div>
     </section>
   );
-}
