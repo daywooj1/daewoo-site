@@ -189,19 +189,15 @@ export default function Writing() {
           </div>
 
           {/* Grid */}
-          <motion.div 
-            layout
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            <AnimatePresence mode="popLayout">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <AnimatePresence mode="wait">
               {filteredArticles.map((article) => (
                 <motion.div
                   key={article.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.4 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
                   className="group p-8 bg-white border border-slate-100 rounded-xl hover:shadow-lg hover:shadow-slate-200/50 transition-all duration-500 flex flex-col justify-between space-y-6"
                 >
                   <div className="space-y-4">
@@ -222,7 +218,7 @@ export default function Writing() {
                 </motion.div>
               ))}
             </AnimatePresence>
-          </motion.div>
+          </div>
         </div>
       </div>
 

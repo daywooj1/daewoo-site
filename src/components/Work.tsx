@@ -87,6 +87,11 @@ export default function Work() {
     }
   };
 
+  const swipeConfidenceThreshold = 10000;
+  const swipePower = (offset: number, velocity: number) => {
+    return Math.abs(offset) * velocity;
+  };
+
   return (
     <section 
       id="work" 
@@ -140,6 +145,16 @@ export default function Work() {
                   return (
                     <motion.div
                       key={project.id}
+                      drag="x"
+                      dragConstraints={{ left: 0, right: 0 }}
+                      onDragEnd={(_, { offset, velocity }) => {
+                        const swipe = swipePower(offset.x, velocity.x);
+                        if (swipe < -swipeConfidenceThreshold) {
+                          next();
+                        } else if (swipe > swipeConfidenceThreshold) {
+                          prev();
+                        }
+                      }}
                       initial={{ opacity: 0, scale: 0.8, x: offset * 400 }}
                       animate={{ 
                         opacity: 1 - absOffset * 0.3,
@@ -155,11 +170,9 @@ export default function Work() {
                         stiffness: 260,
                         damping: 25,
                       }}
-                      className="absolute w-[320px] md:w-[450px] aspect-[4/5] md:aspect-[4/3] cursor-pointer"
+                      className="absolute w-[320px] md:w-[450px] aspect-[4/5] md:aspect-[4/3] cursor-grab active:cursor-grabbing"
                       onClick={() => {
-                        if (offset === 0) {
-                           // Open project details or scroll
-                        } else {
+                        if (offset !== 0) {
                           setCurrentIndex(index);
                         }
                       }}
