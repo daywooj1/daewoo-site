@@ -31,7 +31,7 @@ export default function About() {
                   I’m obsessed with the "why" behind how people move through the world. My work is about stripping away the noise to find the elegant logic underneath. Whether I'm untangling a complex system or aligning a team, I play for measurable impact and intuitive design.
                 </p>
                 <p>
-                  When I’m not building, I’m usually climbing or playing chess. They’re the same game to me: solving for the next move, maintaining focus under pressure, and executing with intent. I believe the best products feel like magic, but they’re powered by a lot of grit and even more thinking.
+                  When I’m not building, I’m usually climbing or playing chess. They’re the same game to me: solving for the next move, maintaining focus under pressure, and executing with intent. I believe the best products feel effortless, but underneath is structured thinking and deliberate implementation.
                 </p>
               </div>
             </div>
