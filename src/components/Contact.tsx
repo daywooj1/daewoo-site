@@ -121,7 +121,7 @@ export default function Contact() {
               >
                 <form ref={formRef} onSubmit={handleSubmit} className="space-y-8">
                   <div className="space-y-2">
-                    <label htmlFor="name" className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                    <label htmlFor="name" className="text-[10px] font-bold uppercase tracking-widest text-slate-700">
                       Name
                     </label>
                     <input
@@ -131,12 +131,12 @@ export default function Contact() {
                       placeholder="Your name"
                       required
                       disabled={status === 'loading'}
-                      className="w-full bg-[#F8F9FA] border-none rounded-xl px-6 py-4 text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#1A1F2C]/5 transition-all outline-none disabled:opacity-50"
+                      className="w-full bg-[#F8F9FA] border border-slate-200 rounded-xl px-6 py-4 text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#1A1F2C]/5 transition-all outline-none disabled:opacity-50"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="email" className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                    <label htmlFor="email" className="text-[10px] font-bold uppercase tracking-widest text-slate-700">
                       Email
                     </label>
                     <input
@@ -146,12 +146,12 @@ export default function Contact() {
                       placeholder="your@email.com"
                       required
                       disabled={status === 'loading'}
-                      className="w-full bg-[#F8F9FA] border-none rounded-xl px-6 py-4 text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#1A1F2C]/5 transition-all outline-none disabled:opacity-50"
+                      className="w-full bg-[#F8F9FA] border border-slate-200 rounded-xl px-6 py-4 text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#1A1F2C]/5 transition-all outline-none disabled:opacity-50"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="message" className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                    <label htmlFor="message" className="text-[10px] font-bold uppercase tracking-widest text-slate-700">
                       Message
                     </label>
                     <textarea
@@ -161,7 +161,7 @@ export default function Contact() {
                       placeholder="How can we collaborate?"
                       required
                       disabled={status === 'loading'}
-                      className="w-full bg-[#F8F9FA] border-none rounded-xl px-6 py-4 text-slate-800 placeholder:text-slate-400 focus:ring-2 focus:ring-[#1A1F2C]/5 transition-all outline-none resize-none disabled:opacity-50"
+                      className="w-full bg-[#F8F9FA] border border-slate-200 rounded-xl px-6 py-4 text-slate-800 placeholder:text-slate-700 focus:ring-2 focus:ring-[#1A1F2C]/5 transition-all outline-none resize-none disabled:opacity-50"
                     />
                   </div>
 

@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
-import { X } from "lucide-react";
+import { X, BookOpen } from "lucide-react";
 
 const CATEGORIES = ["All", "Meaning", "Product", "Focus", "Climbing", "Chess", "Experiments"];
 
@@ -131,43 +131,43 @@ export default function Writing() {
             duration: 0.8,
             ease: [0.22, 1, 0.36, 1]
           }}
-          className="group relative bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-500"
+          className="group relative bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-700"
         >
-          <div className="grid md:grid-cols-2 min-h-[400px]">
-            {/* Left Side: Textured Background */}
-            <div className="relative bg-slate-50 overflow-hidden">
-              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')] opacity-30" />
-              <div className="absolute inset-0 bg-radial from-slate-200/50 to-transparent" />
-              <div className="absolute inset-0 flex items-center justify-center p-12">
-                <div className="w-full h-full border border-slate-200/50 rounded-lg flex items-center justify-center">
-                  <span className="font-serif italic text-4xl text-slate-300 select-none">Featured</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Side: Content */}
-            <div className="p-8 md:p-16 flex flex-col justify-center space-y-8">
-              <div className="space-y-2">
-                <div className="flex items-center gap-4 text-[10px] uppercase tracking-widest text-slate-400 font-medium">
-                  <span>{FEATURED_ESSAY.category}</span>
-                  <span className="w-1 h-1 rounded-full bg-slate-200" />
-                  <span>{FEATURED_ESSAY.date}</span>
+          <div className="p-8 md:p-12 flex flex-col md:flex-row md:items-center justify-between gap-8 relative z-10">
+            <div className="space-y-6 flex-1">
+              <div className="space-y-4">
+                <div className="flex items-center gap-4">
+                  <span className="px-3 py-1 bg-slate-900 text-white text-[9px] uppercase tracking-[0.3em] font-bold rounded-full">Featured</span>
+                  <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-slate-600 font-bold">
+                    <span>{FEATURED_ESSAY.category}</span>
+                    <span className="w-1 h-1 rounded-full bg-slate-300" />
+                    <span>{FEATURED_ESSAY.date}</span>
+                  </div>
                 </div>
                 <h3 className="font-serif text-3xl md:text-4xl text-slate-900 leading-tight">
                   {FEATURED_ESSAY.title}
                 </h3>
               </div>
               
-              <p className="text-slate-500 font-light leading-relaxed max-w-md">
+              <p className="text-slate-600 font-light leading-relaxed max-w-2xl text-lg">
                 {FEATURED_ESSAY.summary}
               </p>
 
-              <button 
-                onClick={() => setIsModalOpen(true)}
-                className="inline-flex items-center text-xs uppercase tracking-widest font-semibold text-slate-900 group-hover:translate-x-1 transition-transform cursor-pointer"
-              >
-                Read Essay
-              </button>
+              <div>
+                <button 
+                  onClick={() => setIsModalOpen(true)}
+                  className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.3em] font-bold text-slate-900 group-hover:gap-5 transition-all cursor-pointer"
+                >
+                  <span className="border-b-2 border-slate-900/10 pb-1 group-hover:border-slate-900 transition-colors">Read Essay</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div className="hidden md:flex items-center justify-center p-8 bg-slate-50 rounded-2xl border border-slate-100">
+              <BookOpen className="w-12 h-12 text-slate-200 group-hover:text-slate-900 transition-colors duration-500" />
             </div>
           </div>
         </motion.div>
@@ -183,7 +183,7 @@ export default function Writing() {
                 className={`px-4 py-2 text-[11px] uppercase tracking-widest font-medium transition-all rounded-full ${
                   activeCategory === category
                     ? "bg-slate-900 text-white"
-                    : "text-slate-400 hover:text-slate-900 hover:bg-slate-50"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
                 }`}
               >
                 {category}
@@ -191,31 +191,44 @@ export default function Writing() {
             ))}
           </div>
 
-          {/* Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <AnimatePresence mode="wait">
-              {filteredArticles.map((article) => (
+          {/* List View */}
+          <div className="space-y-4">
+            <AnimatePresence mode="popLayout">
+              {filteredArticles.map((article, index) => (
                 <motion.div
                   key={article.id}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="group p-8 bg-white border border-slate-100 rounded-xl hover:shadow-lg hover:shadow-slate-200/50 transition-all duration-500 flex flex-col justify-between space-y-6"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ 
+                    duration: 0.4, 
+                    delay: index * 0.05,
+                    ease: [0.22, 1, 0.36, 1]
+                  }}
+                  className="group relative p-6 md:p-8 bg-white border border-slate-100 rounded-2xl hover:border-slate-300 hover:shadow-xl hover:shadow-slate-200/40 transition-all duration-500 cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-6"
                 >
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-3 text-[9px] uppercase tracking-widest text-slate-400 font-medium">
-                      <span>{article.category}</span>
+                  <div className="flex-1 space-y-3">
+                    <div className="flex items-center gap-3 text-[9px] uppercase tracking-widest text-slate-400 font-bold">
+                      <span className="text-slate-900 bg-slate-50 px-2 py-0.5 rounded">{article.category}</span>
                       <span className="w-1 h-1 rounded-full bg-slate-200" />
                       <span>{article.date}</span>
                     </div>
-                    <div className="space-y-2">
-                      <h4 className="font-serif text-xl text-slate-900 group-hover:text-slate-700 transition-colors">
-                        {article.title}
-                      </h4>
-                      <p className="text-sm text-slate-500 font-light leading-relaxed">
-                        {article.subtitle}
-                      </p>
+                    <h4 className="font-serif text-2xl text-slate-900 group-hover:text-slate-700 transition-colors">
+                      {article.title}
+                    </h4>
+                  </div>
+                  
+                  <div className="md:w-2/5">
+                    <p className="text-sm text-slate-500 font-light leading-relaxed line-clamp-2">
+                      {article.subtitle}
+                    </p>
+                  </div>
+
+                  <div className="flex items-center justify-end">
+                    <div className="w-10 h-10 rounded-full border border-slate-100 flex items-center justify-center group-hover:bg-slate-900 group-hover:border-slate-900 transition-all duration-500">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-slate-300 group-hover:text-white transition-colors">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                      </svg>
                     </div>
                   </div>
                 </motion.div>
@@ -228,49 +241,74 @@ export default function Writing() {
       {/* Essay Modal */}
       <AnimatePresence>
         {isModalOpen && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8">
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-0 md:p-8">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsModalOpen(false)}
-              className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
+              className="absolute inset-0 bg-slate-950/80 backdrop-blur-md"
             />
             <motion.div
-              initial={{ opacity: 0, y: 50, scale: 0.95 }}
+              initial={{ opacity: 0, y: 30, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 50, scale: 0.95 }}
-              className="relative w-full max-w-3xl max-h-[90vh] bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col"
+              exit={{ opacity: 0, y: 30, scale: 0.98 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="relative w-full max-w-4xl h-full md:h-auto md:max-h-[85vh] bg-[#fdfdfd] md:rounded-3xl overflow-hidden shadow-2xl flex flex-col"
             >
-              {/* Modal Header */}
-              <div className="p-6 md:p-10 border-b border-slate-100 flex justify-between items-start">
-                <div className="space-y-2">
-                  <div className="flex items-center gap-4 text-[10px] uppercase tracking-widest text-slate-400 font-medium">
-                    <span>{FEATURED_ESSAY.category}</span>
-                    <span className="w-1 h-1 rounded-full bg-slate-200" />
-                    <span>{FEATURED_ESSAY.date}</span>
-                  </div>
-                  <h3 className="font-serif text-3xl md:text-4xl text-slate-900 leading-tight">
-                    {FEATURED_ESSAY.title}
-                  </h3>
+              {/* Modal Header - Sticky */}
+              <div className="sticky top-0 z-20 bg-[#fdfdfd]/80 backdrop-blur-md px-6 py-4 md:px-12 md:py-8 border-b border-slate-100 flex justify-between items-center">
+                <div className="flex items-center gap-4 text-[10px] uppercase tracking-[0.3em] text-slate-400 font-bold">
+                  <span>{FEATURED_ESSAY.category}</span>
+                  <span className="w-1 h-1 rounded-full bg-slate-200" />
+                  <span>{FEATURED_ESSAY.date}</span>
                 </div>
                 <button 
                   onClick={() => setIsModalOpen(false)}
-                  className="p-2 hover:bg-slate-50 rounded-full transition-colors"
+                  className="p-2 hover:bg-slate-100 rounded-full transition-colors group"
                 >
-                  <X className="w-6 h-6 text-slate-400" />
+                  <X className="w-5 h-5 text-slate-400 group-hover:text-slate-900 transition-colors" />
                 </button>
               </div>
 
-              {/* Modal Content */}
-              <div className="flex-1 overflow-y-auto p-6 md:p-16">
-                <div className="prose prose-slate max-w-none">
-                  {FEATURED_ESSAY.content.split('\n\n').map((paragraph, index) => (
-                    <p key={index} className="text-lg text-slate-600 font-light leading-relaxed mb-8 last:mb-0">
-                      {paragraph.trim()}
+              {/* Modal Content - Scrollable */}
+              <div className="flex-1 overflow-y-auto px-6 py-12 md:px-24 md:py-20">
+                <article className="max-w-2xl mx-auto">
+                  <header className="mb-16 space-y-6">
+                    <h1 className="font-serif text-4xl md:text-6xl text-slate-900 leading-[1.1] tracking-tight">
+                      {FEATURED_ESSAY.title}
+                    </h1>
+                    <div className="w-12 h-[1px] bg-slate-900/20" />
+                  </header>
+
+                  <div className="font-serif text-xl md:text-2xl text-slate-800 leading-[1.6] font-light space-y-10">
+                    {FEATURED_ESSAY.content.split('\n\n').map((paragraph, index) => {
+                      const text = paragraph.trim();
+                      if (!text) return null;
+                      
+                      // Check if it's a short line that might be a subheader or emphasis
+                      const isShort = text.length < 50 && !text.endsWith('.');
+                      
+                      return (
+                        <p 
+                          key={index} 
+                          className={`${isShort ? "text-slate-900 font-medium italic mt-12 mb-4" : "opacity-90"}`}
+                        >
+                          {text}
+                        </p>
+                      );
+                    })}
+                  </div>
+
+                  <footer className="mt-24 pt-12 border-t border-slate-100 flex flex-col items-center space-y-6">
+                    <div className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-white font-bold text-xs">
+                      DJ
+                    </div>
+                    <p className="text-[10px] uppercase tracking-[0.4em] text-slate-400 font-bold">
+                      End of Essay
                     </p>
-                  ))}
-                </div>
+                  </footer>
+                </article>
               </div>
             </motion.div>
           </div>
