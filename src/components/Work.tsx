@@ -11,7 +11,7 @@ const projects = [
     category: "Mobile",
     description: "Leading mobile product strategy for the world's most visited automotive marketplace.",
     preview: "Scaling a high-performance mobile experience for millions of monthly active users.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/CarGurus_logo.svg/1200px-CarGurus_logo.svg.png",
+    image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80&w=1000",
     role: "Lead Product Manager",
     problem: "As the automotive market shifted toward mobile-first consumption, CarGurus needed to modernize its legacy mobile experience to maintain its market-leading position and improve conversion rates across a fragmented user journey.",
     impact: "Successfully overhauled the core mobile search and vehicle detail pages, resulting in a 14% increase in lead conversion and a significant improvement in App Store ratings. Established a new design system that reduced front-end development time by 30%."
@@ -22,7 +22,7 @@ const projects = [
     category: "Growth",
     description: "Driving user activation and retention for the #1 baby sleep and wellness app.",
     preview: "Optimizing the first-mile experience through data-driven behavioral design.",
-    image: "https://images.crunchbase.com/image/upload/c_pad,h_1000,w_1000,f_auto,q_auto:eco,dpr_1/v1506547432/qf0p0p0p0p0p0p0p0p0p.png",
+    image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80&w=1000",
     role: "Lead Product Manager",
     problem: "High drop-off rates during the initial onboarding flow were preventing new parents from realizing the value of the AI-driven sleep predictions, leading to lower-than-expected long-term retention.",
     impact: "Redesigned the onboarding questionnaire using behavioral psychology principles, increasing user activation by 22%. Implemented a personalized notification strategy that boosted Day-30 retention by 18%."
@@ -33,7 +33,7 @@ const projects = [
     category: "Consulting",
     description: "Architecting digital transformation strategies for Fortune 500 enterprises.",
     preview: "Bridging the gap between complex business requirements and elegant digital solutions.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Deloitte.svg/1200px-Deloitte.svg.png",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000",
     role: "Lead Product Consultant",
     problem: "Large-scale enterprises often struggle with siloed data and antiquated internal tools, leading to operational inefficiencies and a poor employee experience that ultimately impacts the bottom line.",
     impact: "Led the digital strategy for a global retail client, consolidating 12 disparate legacy systems into a unified cloud-based platform. This transformation saved the organization an estimated $4.2M in annual operating costs."
@@ -203,14 +203,12 @@ export default function Work() {
                       }}
                     >
                       <div className="relative w-full h-full bg-white rounded-3xl overflow-hidden shadow-2xl shadow-slate-200/50 border border-slate-100 group/card">
-                        <div className={`w-full h-full flex items-center justify-center ${project.id <= 3 ? 'p-12 bg-slate-50' : ''}`}>
-                          <img
-                            src={project.image}
-                            alt={project.title}
-                            referrerPolicy="no-referrer"
-                            className={`transition-transform duration-700 group-hover/card:scale-105 ${project.id <= 3 ? 'w-full h-full object-contain' : 'w-full h-full object-cover'}`}
-                          />
-                        </div>
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          referrerPolicy="no-referrer"
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-105"
+                        />
                         
                         {/* Overlay Content */}
                         <div className={`absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent transition-opacity duration-500 ${offset === 0 ? 'opacity-100' : 'opacity-0'}`}>
