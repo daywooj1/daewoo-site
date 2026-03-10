@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "motion/react";
-import { Mail, Send, Check, Loader2, AlertCircle } from "lucide-react";
+import { Mail, Send, Check, Linkedin, Loader2, AlertCircle } from "lucide-react";
 import { FormEvent, useState, useRef } from "react";
 
 export default function Contact() {
@@ -98,18 +98,34 @@ export default function Contact() {
                     Open to product leadership, collaborations, and ambitious ideas.
                   </p>
                 </div>
+              
+                <div className="flex flex-col gap-6">
+                  <a 
+                    href="mailto:jeongdaewoo@gmail.com" 
+                    className="inline-flex items-center gap-4 group"
+                  >
+                    <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm group-hover:shadow-md transition-all">
+                      <Mail className="w-5 h-5 text-slate-400 group-hover:text-[#1A1F2C] transition-colors" />
+                    </div>
+                    <span className="text-lg font-medium text-[#1A1F2C] border-b border-transparent group-hover:border-[#1A1F2C] transition-all">
+                      jeongdaewoo@gmail.com
+                    </span>
+                  </a>
 
-                <a 
-                  href="mailto:jeongdaewoo@gmail.com" 
+                  <a 
+                  href="https://www.linkedin.com/in/daewoo-jeong/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-4 group"
                 >
                   <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm group-hover:shadow-md transition-all">
-                    <Mail className="w-5 h-5 text-slate-400 group-hover:text-[#1A1F2C] transition-colors" />
+                    <Linkedin className="w-5 h-5 text-slate-400 group-hover:text-[#0077B5] transition-colors" />
                   </div>
-                  <span className="text-lg font-medium text-[#1A1F2C] border-b border-transparent group-hover:border-[#1A1F2C] transition-all">
-                    jeongdaewoo@gmail.com
+                  <span className="text-lg font-medium text-[#1A1F2C] border-b border-transparent group-hover:border-[#0077B5] transition-all">
+                    LinkedIn
                   </span>
                 </a>
+                </div>
               </motion.div>
 
               {/* Right Side - Form */}
