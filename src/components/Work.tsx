@@ -11,7 +11,7 @@ const projects = [
     category: "Mobile",
     description: "A next-generation iOS gaming platform focused on retro-modern arcade experiences.",
     preview: "Redefining mobile gaming through haptic-first interactions and spatial soundscapes.",
-    image: "https://images.unsplash.com/photo-1605142859862-978be7eba909?auto=format&fit=crop&q=80&w=1000",
+    image: "/Arcadio.png",
     role: "Lead Product Manager & Designer",
     problem: "Mobile gaming often lacks the tactile feedback and immersive atmosphere of classic arcade cabinets, leading to a disconnected user experience.",
     impact: "Developed a custom haptic engine that translates on-screen action into physical feedback, resulting in a 40% increase in session length during beta testing."
