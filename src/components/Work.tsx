@@ -104,7 +104,7 @@ export default function Work() {
   return (
     <section 
       id="work" 
-      className="bg-[#F8FAFC] border-t border-slate-200/40 relative overflow-hidden group/work py-16 md:py-20"
+      className="group relative bg-white rounded-2xl border border-slate-200/60 overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-slate-200/50 hover:-translate-y-1"
     >
       {/* Spotlight Effect */}
       <div 
