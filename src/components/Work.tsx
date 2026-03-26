@@ -44,23 +44,6 @@ const projects = [
   },
   {
     id: 2,
-    title: "Marriott: Search & Booking Redesign",
-    categories: ["Products"],
-    description: "Modernizing the web experience for a global hospitality leader during a complex CMS migration.",
-    image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80&w=1000",
-    modalImage: "/dealership mode.png",
-    role: "Lead Product Manager",
-    problem: "Fragmented search and map interfaces made hotel comparison exhausting, leading to high drop-off at the selection stage.",
-    whatIDid: [
-      "Led the redesign of the Search Results Page (SRP) and Maps experience.",
-      "Shipped high-density hotel cards, intuitive amenity filters, and a flexible calendar picker.",
-      "Used Glassbox and Adobe Analytics to pinpoint behavioral friction in the booking funnel."
-    ],
-    impact: "Drastically reduced time-to-selection and established a scalable design system for global content delivery.",
-    keyInsight: "Booking friction isn't about a lack of options; it's about the cognitive load of comparing them."
-  },
-  {
-    id: 3,
     title: "Huckleberry: AI Parenting Assistant",
     categories: ["Products", "Experiments"],
     description: "Leading growth initiatives for a top-tier baby wellness app with over 1M monthly active users.",
@@ -75,6 +58,23 @@ const projects = [
     ],
     impact: "Significant boost in Day-30 retention and a 25% reduction in friction for daily logging events.",
     keyInsight: "Parents don't want more charts; they want an answer to 'What should I do right now?'"
+  },
+  {
+    id: 3,
+    title: "Marriott: Search & Booking Redesign",
+    categories: ["Products"],
+    description: "Modernizing the web experience for a global hospitality leader during a complex CMS migration.",
+    image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80&w=1000",
+    modalImage: "/dealership-mode.png",
+    role: "Lead Product Manager",
+    problem: "Fragmented search and map interfaces made hotel comparison exhausting, leading to high drop-off at the selection stage.",
+    whatIDid: [
+      "Led the redesign of the Search Results Page (SRP) and Maps experience.",
+      "Shipped high-density hotel cards, intuitive amenity filters, and a flexible calendar picker.",
+      "Used Glassbox and Adobe Analytics to pinpoint behavioral friction in the booking funnel."
+    ],
+    impact: "Drastically reduced time-to-selection and established a scalable design system for global content delivery.",
+    keyInsight: "Booking friction isn't about a lack of options; it's about the cognitive load of comparing them."
   },
 ];
 
