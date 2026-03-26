@@ -127,10 +127,10 @@ export default function Work() {
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200
+                  className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200
                     ${activeCategory === cat
                       ? "bg-slate-900 text-white"
-                      : "bg-transparent text-slate-500 hover:text-slate-900"
+                      : "text-slate-500 hover:text-slate-900"
                     }`}
                 >
                   {cat}
