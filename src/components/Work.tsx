@@ -45,7 +45,7 @@ const projects = [
     title: "Huckleberry: AI Parenting Assistant",
     categories: ["Products", "Experiments"],
     description: "Leading growth initiatives for a top-tier baby wellness app with over 1M monthly active users.",
-    image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80&w=1000",
+    image: "huckleberry.png",
     role: "Lead Product Manager",
     problem: "Parents were burnt out by manual logging and felt 'data-rich but insight-poor' regarding their child's needs.",
     whatIDid: [
