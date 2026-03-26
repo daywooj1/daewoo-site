@@ -409,8 +409,8 @@ export default function Writing() {
                     ease: [0.22, 1, 0.36, 1]
                   }}
                   onClick={() => openModal(article)}
-                  className="group relative p-6 bg-white border border-slate-100 rounded-2xl hover:border-slate-300 hover:shadow-xl hover:shadow-slate-200/40 transition-all duration-500 cursor-pointer flex flex-col justify-between gap-6"
-                >
+                  className="group relative p-6 bg-white border border-slate-200 rounded-2xl hover:border-slate-400 hover:shadow-md transition-all duration-300 cursor-pointer flex flex-col justify-between gap-6"
+                  >
                   <div className="space-y-3">
                     <div className="flex items-center gap-3 text-[9px] uppercase tracking-widest text-slate-600 font-bold">
                       <span className="text-slate-900 bg-slate-50 px-2 py-0.5 rounded">{article.category}</span>
