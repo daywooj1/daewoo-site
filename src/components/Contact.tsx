@@ -104,8 +104,8 @@ export default function Contact() {
                     href="mailto:jeongdaewoo@gmail.com" 
                     className="inline-flex items-center gap-4 group"
                   >
-                    <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm group-hover:shadow-md transition-all">
-                      <Mail className="w-5 h-5 text-slate-400 group-hover:text-[#1A1F2C] transition-colors" />
+                    <div className="w-12 h-12 rounded-full bg-white border border-slate-200 flex items-center justify-center transition-all duration-200 group-hover:border-slate-300 group-hover:shadow-md">
+                      <Mail className="w-5 h-5 text-slate-600 group-hover:text-[#1A1F2C] transition-colors" />
                     </div>
                     <span className="text-lg font-medium text-[#1A1F2C] border-b border-transparent group-hover:border-[#1A1F2C] transition-all">
                       jeongdaewoo@gmail.com
@@ -118,8 +118,8 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-4 group"
                 >
-                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm group-hover:shadow-md transition-all">
-                    <Linkedin className="w-5 h-5 text-slate-400 group-hover:text-[#0077B5] transition-colors" />
+                  <div className="w-12 h-12 rounded-full bg-white border border-slate-200 flex items-center justify-center transition-all duration-200 group-hover:border-slate-300 group-hover:shadow-md">
+                    <Linkedin className="w-5 h-5 text-slate-600 group-hover:text-[#0077B5] transition-colors" />
                   </div>
                   <span className="text-lg font-medium text-[#1A1F2C] border-b border-transparent group-hover:border-[#0077B5] transition-all">
                     LinkedIn
