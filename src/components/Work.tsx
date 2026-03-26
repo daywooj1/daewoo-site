@@ -66,7 +66,7 @@ const projects = [
     description: "Modernizing the web experience for a global hospitality leader during a complex CMS migration.",
     image: "/marriott.png",
     modalImage: "/srp marriott.png",
-    role: "Lead Product Manager",
+    role: "Consulting Product Manager",
     problem: "Fragmented search and map interfaces made hotel comparison exhausting, leading to high drop-off at the selection stage.",
     whatIDid: [
       "Led the redesign of the Search Results Page (SRP) and Maps experience.",
