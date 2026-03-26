@@ -315,7 +315,7 @@ export default function Writing() {
   }, [isModalOpen]);
 
   return (
-    <section id="writing" className="bg-white border-t border-slate-200/40 py-16 md:py-20">
+    <section id="writing" className="bg-white border-t border-slate-200/40 py-12 md:py-16">
       <div className="section-container space-y-12">
         {/* Header */}
         <div className="space-y-4">
