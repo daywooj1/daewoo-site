@@ -7,7 +7,7 @@ const categories = ["All", "Builds", "Products", "Experiments"];
 const projects = [
   {
     id: 0,
-    title: "Arcadio: Mini-games",
+    title: "Arcadio: Multiplayer Games",
     categories: ["Builds", "Experiments"],
     description: "I designed and built Arcadio end-to-end, a real-time multiplayer mobile game platform featuring fast, social mini-games.",
     appStoreLink: "https://apps.apple.com/us/app/arcadio/id6760566701",
@@ -27,7 +27,7 @@ const projects = [
   },
   {
     id: 1,
-    title: "CarGurus: Dealership Mode",
+    title: "CarGurus: Buyer Experience",
     categories: ["Products"],
     description: "Scaling the top-of-funnel experience for the world's most visited automotive marketplace.",
     image: "/logo png.png",
@@ -61,7 +61,7 @@ const projects = [
   },
   {
     id: 3,
-    title: "Marriott: Search Redesign",
+    title: "Marriott: Search Experience",
     categories: ["Products"],
     description: "Modernizing the web experience for a global hospitality leader during a complex CMS migration.",
     image: "/marriott.png",
@@ -159,7 +159,7 @@ export default function Work() {
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-[60%] h-auto object-contain transition-transform duration-1000 group-hover/card:scale-105"
+                      className="w-[50%] h-auto object-contain transition-transform duration-1000 group-hover/card:scale-105"
                     />
                     <div className="absolute inset-0 bg-slate-900/0 group-hover/card:bg-slate-900/5 transition-colors duration-700" />
                   </div>
