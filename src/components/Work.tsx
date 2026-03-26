@@ -141,7 +141,7 @@ export default function Work() {
           </div>
 
           {/* Grid View Container */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
             <AnimatePresence mode="popLayout">
               {filteredProjects.map((project) => (
                 <motion.div
