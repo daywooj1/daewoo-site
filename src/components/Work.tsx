@@ -155,12 +155,11 @@ export default function Work() {
                   onClick={() => setSelectedProject(project)}
                 >
                   {/* Image Container */}
-                  <div className="relative aspect-[4/3] overflow-hidden p-2 flex items-center justify-center">
+                  <div className="relative overflow-hidden p-8 flex items-center justify-center min-h-[180px]">
                     <img
                       src={project.image}
                       alt={project.title}
-                      referrerPolicy="no-referrer"
-                      className="w-[50%] h-[50%] object-cover transition-transform duration-1000 group-hover/card:scale-105"
+                      className="w-[60%] h-auto object-contain transition-transform duration-1000 group-hover/card:scale-105"
                     />
                     <div className="absolute inset-0 bg-slate-900/0 group-hover/card:bg-slate-900/5 transition-colors duration-700" />
                   </div>
