@@ -224,7 +224,7 @@ export default function Work() {
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/10" />
               </div>
 
               {/* Content Side */}
