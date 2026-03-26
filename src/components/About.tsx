@@ -15,7 +15,7 @@ export default function About() {
             <img 
               src="/selfie.png" 
               alt="Daewoo Jeong" 
-              className="w-full h-full object-cover object-[center_30%] grayscale hover:grayscale-0 transition-all duration-700"
+              className="w-full h-full object-cover"
             />
           </div>
           
