@@ -13,7 +13,7 @@ export default function About() {
         >
           <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-slate-100 shadow-2xl shadow-slate-200">
             <img 
-              src="/profile.jpg" 
+              src="/selfie.png" 
               alt="Daewoo Jeong" 
               referrerPolicy="no-referrer"
               className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
