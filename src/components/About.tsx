@@ -19,7 +19,7 @@ export default function About() {
             />
           </div>
           
-          <div className="space-y-12">
+          <div className="space-y-6">
             <div className="space-y-4">
               <h2 className="text-sm font-bold uppercase tracking-widest text-slate-500">About</h2>
               <div className="space-y-8 text-xl md:text-2xl font-light leading-relaxed text-slate-900">
