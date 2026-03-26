@@ -13,7 +13,7 @@ const projects = [
     appStoreLink: "https://apps.apple.com/us/app/arcadio/id6760566701",
     image: "/icon.png",
     modalImage: "/arcadio lobby.png",
-    role: "Lead Product Manager & Designer",
+    role: "Lead Product Owner & Designer & Engineer",
     problem: "Most mobile games are either overly complex or lack real-time social interaction. There’s a gap for quick, competitive, multiplayer experiences that feel lightweight but engaging.",
     whatIDid: [
       "Built the entire app 0 to 1: Product concept, UX / UI design, Frontend (React Native + Expo), and Backend multiplayer logic.",
@@ -49,7 +49,7 @@ const projects = [
     description: "Leading growth initiatives for a top-tier baby wellness app with over 1M monthly active users.",
     image: "huckleberry.png",
     modalImage: "/wizzy.png",
-    role: "Lead Product Manager",
+    role: "Growth Product Manager",
     problem: "Parents were burnt out by manual logging and felt 'data-rich but insight-poor' regarding their child's needs.",
     whatIDid: [
       "Conceptualized and launched 'Wizzy,' a GPT-powered assistant for natural language logging.",
