@@ -11,7 +11,7 @@ const projects = [
     categories: ["Builds", "Experiments"],
     description: "I designed and built Arcadio end-to-end, a real-time multiplayer mobile game platform featuring fast, social mini-games.",
     appStoreLink: "https://apps.apple.com/us/app/arcadio/id6760566701",
-    image: "/public/icon.png",
+    image: "icon.png",
     role: "Lead Product Manager & Designer",
     problem: "Most mobile games are either overly complex or lack real-time social interaction. There’s a gap for quick, competitive, multiplayer experiences that feel lightweight but engaging.",
     whatIDid: [
@@ -61,7 +61,7 @@ const projects = [
     title: "CarGurus: Homepage & Dealership Mode",
     categories: ["Products"],
     description: "Scaling the top-of-funnel experience for the world's most visited automotive marketplace.",
-    image: "/public/cargurus.png",
+    image: "/cargurus.png",
     role: "Lead Product Manager",
     problem: "The product was a 'lead-gen machine' that became useless the moment a buyer actually stepped onto a dealership lot.",
     whatIDid: [
