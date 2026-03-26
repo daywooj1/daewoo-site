@@ -155,7 +155,7 @@ export default function Work() {
                   onClick={() => setSelectedProject(project)}
                 >
                   {/* Image Container */}
-                  <div className="relative aspect-[16/10] overflow-hidden">
+                  <div className="relative aspect-[4/3] overflow-hidden p-2">
                     <img
                       src={project.image}
                       alt={project.title}
