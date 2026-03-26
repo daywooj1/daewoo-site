@@ -7,7 +7,7 @@ const categories = ["All", "Builds", "Products", "Experiments"];
 const projects = [
   {
     id: 0,
-    title: "Arcadio: Multiplayer Games",
+    title: "Arcadio: Multiplayer",
     categories: ["Builds", "Experiments"],
     description: "I designed and built Arcadio end-to-end, a real-time multiplayer mobile game platform featuring fast, social mini-games.",
     appStoreLink: "https://apps.apple.com/us/app/arcadio/id6760566701",
