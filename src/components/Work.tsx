@@ -64,8 +64,8 @@ const projects = [
     title: "Marriott: Search & Booking Redesign",
     categories: ["Products"],
     description: "Modernizing the web experience for a global hospitality leader during a complex CMS migration.",
-    image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80&w=1000",
-    modalImage: "/dealership-mode.png",
+    image: "/marriott.png",
+    modalImage: "/marriott png .png",
     role: "Lead Product Manager",
     problem: "Fragmented search and map interfaces made hotel comparison exhausting, leading to high drop-off at the selection stage.",
     whatIDid: [
