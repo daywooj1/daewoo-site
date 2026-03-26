@@ -160,7 +160,7 @@ export default function Work() {
                       src={project.image}
                       alt={project.title}
                       referrerPolicy="no-referrer"
-                      className="w-[80%] h-[80%] object-cover mx-auto transition-transform duration-1000 group-hover/card:scale-105"
+                      className="w-[50%] h-[50%] object-cover mx-auto transition-transform duration-1000 group-hover/card:scale-105"
                     />
                     <div className="absolute inset-0 bg-slate-900/0 group-hover/card:bg-slate-900/5 transition-colors duration-700" />
                   </div>
