@@ -104,7 +104,7 @@ export default function Work() {
   return (
     <section 
       id="work" 
-      className="group relative bg-white rounded-2xl ... transition-all duration-500 hover:shadow-xl hover:shadow-slate-200/50"
+      className="group/work relative bg-white rounded-2xl transition-all duration-500"
     >
       {/* Spotlight Effect */}
       <div 
