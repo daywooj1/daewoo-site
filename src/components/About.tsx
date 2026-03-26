@@ -11,12 +11,11 @@ export default function About() {
           transition={{ duration: 0.8 }}
           className="grid md:grid-cols-[1fr_1.5fr] gap-12 md:gap-24 items-center"
         >
-          <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-slate-100 shadow-2xl shadow-slate-200">
+          <div className="relative h-[520px] overflow-hidden rounded-2xl bg-slate-100 shadow-2xl shadow-slate-200">
             <img 
               src="/selfie.png" 
               alt="Daewoo Jeong" 
-              referrerPolicy="no-referrer"
-              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+              className="w-full h-full object-cover object-[center_30%] grayscale hover:grayscale-0 transition-all duration-700"
             />
           </div>
           
