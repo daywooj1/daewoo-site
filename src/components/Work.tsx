@@ -2,53 +2,76 @@ import { motion, AnimatePresence } from "motion/react";
 import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, X, ArrowRight } from "lucide-react";
 
-const categories = ["All", "Mobile", "Growth", "Consulting"];
+const categories = ["All", "Builds", "Products", "Experiments"];
 
 const projects = [
   {
     id: 0,
-    title: "Arcadio",
-    category: "Mobile",
-    description: "A next-generation iOS gaming platform focused on retro-modern arcade experiences.",
-    preview: "Redefining mobile gaming through haptic-first interactions and spatial soundscapes.",
-    image: "/Arcadio.png",
+    title: "Arcadio: Multiplayer Mini-Game Platform",
+    categories: ["Builds", "Experiments"],
+    description: "I designed and built Arcadio end-to-end, a real-time multiplayer mobile game platform featuring fast, social mini-games.",
+    appStoreLink: "https://apps.apple.com/us/app/arcadio/id6760566701",
+    image: "https://images.unsplash.com/photo-1605142859862-978be7eba909?auto=format&fit=crop&q=80&w=1000",
     role: "Lead Product Manager & Designer",
-    problem: "Mobile gaming often lacks the tactile feedback and immersive atmosphere of classic arcade cabinets, leading to a disconnected user experience.",
-    impact: "Developed a custom haptic engine that translates on-screen action into physical feedback, resulting in a 40% increase in session length during beta testing."
+    problem: "Most mobile games are either overly complex or lack real-time social interaction. There’s a gap for quick, competitive, multiplayer experiences that feel lightweight but engaging.",
+    whatIDid: [
+      "Built the entire app 0 to 1: Product concept, UX / UI design, Frontend (React Native + Expo), and Backend multiplayer logic.",
+      "Designed and developed multiple reaction-based, memory, and precision mini-games.",
+      "Implemented real-time multiplayer systems including game state sync, round lifecycles, and latency handling.",
+      "Focused heavily on game feel: reduced input lag, smoothed animations, and tuned haptic feedback loops.",
+      "Shipped to the App Store and iterated through EAS build pipelines, crash fixes, and performance optimizations."
+    ],
+    impact: "Successfully took a product from idea to a shipped iOS app, enabling real-time multiplayer gameplay and building a foundation for scalable platform expansion.",
+    keyInsight: "Multiplayer games don’t fail because of mechanics; they fail because of latency, sync, and feel."
   },
   {
     id: 1,
-    title: "CarGurus Mobile",
-    category: "Mobile",
-    description: "Leading mobile product strategy for the world's most visited automotive marketplace.",
-    preview: "Scaling a high-performance mobile experience for millions of monthly active users.",
+    title: "Marriott: Search & Booking Redesign",
+    categories: ["Products"],
+    description: "Modernizing the web experience for a global hospitality leader during a complex CMS migration.",
     image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80&w=1000",
     role: "Lead Product Manager",
-    problem: "As the automotive market shifted toward mobile-first consumption, CarGurus needed to modernize its legacy mobile experience to maintain its market-leading position and improve conversion rates across a fragmented user journey.",
-    impact: "Successfully overhauled the core mobile search and vehicle detail pages, resulting in a 14% increase in lead conversion and a significant improvement in App Store ratings. Established a new design system that reduced front-end development time by 30%."
+    problem: "Fragmented search and map interfaces made hotel comparison exhausting, leading to high drop-off at the selection stage.",
+    whatIDid: [
+      "Led the redesign of the Search Results Page (SRP) and Maps experience.",
+      "Shipped high-density hotel cards, intuitive amenity filters, and a flexible calendar picker.",
+      "Used Glassbox and Adobe Analytics to pinpoint behavioral friction in the booking funnel."
+    ],
+    impact: "Drastically reduced time-to-selection and established a scalable design system for global content delivery.",
+    keyInsight: "Booking friction isn't about a lack of options; it's about the cognitive load of comparing them."
   },
   {
     id: 2,
-    title: "Huckleberry Sleep",
-    category: "Growth",
-    description: "Driving user activation and retention for the #1 baby sleep and wellness app.",
-    preview: "Optimizing the first-mile experience through data-driven behavioral design.",
+    title: "Huckleberry: AI Parenting Assistant",
+    categories: ["Products", "Experiments"],
+    description: "Leading growth initiatives for a top-tier baby wellness app with over 1M monthly active users.",
     image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80&w=1000",
     role: "Lead Product Manager",
-    problem: "High drop-off rates during the initial onboarding flow were preventing new parents from realizing the value of the AI-driven sleep predictions, leading to lower-than-expected long-term retention.",
-    impact: "Redesigned the onboarding questionnaire using behavioral psychology principles, increasing user activation by 22%. Implemented a personalized notification strategy that boosted Day-30 retention by 18%."
+    problem: "Parents were burnt out by manual logging and felt 'data-rich but insight-poor' regarding their child's needs.",
+    whatIDid: [
+      "Conceptualized and launched 'Wizzy,' a GPT-powered assistant for natural language logging.",
+      "Integrated real-time AI recommendations directly into the core sleep and feeding flows.",
+      "Partnered with engineering to move the product from a passive tracker to an active intelligent guide."
+    ],
+    impact: "Significant boost in Day-30 retention and a 25% reduction in friction for daily logging events.",
+    keyInsight: "Parents don't want more charts; they want an answer to 'What should I do right now?'"
   },
   {
     id: 3,
-    title: "Deloitte Digital",
-    category: "Consulting",
-    description: "Architecting digital transformation strategies for Fortune 500 enterprises.",
-    preview: "Bridging the gap between complex business requirements and elegant digital solutions.",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000",
-    role: "Lead Product Consultant",
-    problem: "Large-scale enterprises often struggle with siloed data and antiquated internal tools, leading to operational inefficiencies and a poor employee experience that ultimately impacts the bottom line.",
-    impact: "Led the digital strategy for a global retail client, consolidating 12 disparate legacy systems into a unified cloud-based platform. This transformation saved the organization an estimated $4.2M in annual operating costs."
-  }
+    title: "CarGurus: Homepage & Dealership Mode",
+    categories: ["Products"],
+    description: "Scaling the top-of-funnel experience for the world's most visited automotive marketplace.",
+    image: "/public/cargurus.png",
+    role: "Lead Product Manager",
+    problem: "The product was a 'lead-gen machine' that became useless the moment a buyer actually stepped onto a dealership lot.",
+    whatIDid: [
+      "Overhauled the homepage with dynamic, behavior-based modules to drive re-engagement.",
+      "Shipped 'Dealership Mode' (0 to 1), providing contextual vehicle insights for users physically at the lot.",
+      "Shifted the product vision from 'finding a car' to 'navigating the entire purchase journey.'"
+    ],
+    impact: "Created a new high-intent engagement surface and strengthened long-term defensibility against pure-search competitors.",
+    keyInsight: "The highest-intent moment in car buying isn't the search; it's standing on the lot with the keys in hand."
+  },
 ];
 
 export default function Work() {
@@ -58,7 +81,7 @@ export default function Work() {
 
   const filteredProjects = activeCategory === "All" 
     ? projects 
-    : projects.filter(p => p.category === activeCategory);
+    : projects.filter(p => p.categories.includes(activeCategory));
 
   useEffect(() => {
     if (selectedProject) {
@@ -93,7 +116,7 @@ export default function Work() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
             <div className="space-y-4">
               <h2 className="text-sm font-bold uppercase tracking-widest text-slate-400">Selected Work</h2>
-              <h3 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">Curated Experiments</h3>
+              <h3 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">Studio</h3>
             </div>
 
             <div className="flex flex-wrap gap-2">
@@ -142,9 +165,11 @@ export default function Work() {
                   <div className="p-8 md:p-10 space-y-6">
                     <div className="space-y-3">
                       <div className="flex items-center gap-3">
-                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-indigo-500 bg-indigo-50 px-2.5 py-1 rounded-md">
-                          {project.category}
-                        </span>
+                        {project.categories.map((cat: string) => (
+                          <span key={cat} className="text-[10px] font-bold uppercase tracking-[0.2em] text-indigo-500 bg-indigo-50 px-2.5 py-1 rounded-md">
+                            {cat}
+                          </span>
+                        ))}
                       </div>
                       <h4 className="text-2xl md:text-3xl font-bold text-slate-900 leading-tight">
                         {project.title}
@@ -208,6 +233,17 @@ export default function Work() {
                     <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
                       {selectedProject.title}
                     </h2>
+                    {selectedProject.appStoreLink && (
+                      <a 
+                        href={selectedProject.appStoreLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-700 font-bold text-sm transition-colors mt-2"
+                      >
+                        <span>View on App Store</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </a>
+                    )}
                   </div>
                   <button 
                     onClick={() => setSelectedProject(null)}
@@ -221,6 +257,16 @@ export default function Work() {
                   <section className="space-y-4">
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-px bg-slate-200" />
+                      <h3 className="text-xs uppercase tracking-[0.2em] font-bold text-slate-900">Context</h3>
+                    </div>
+                    <p className="text-lg text-slate-600 font-light leading-relaxed">
+                      {selectedProject.description}
+                    </p>
+                  </section>
+
+                  <section className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-px bg-slate-200" />
                       <h3 className="text-xs uppercase tracking-[0.2em] font-bold text-slate-900">The Problem</h3>
                     </div>
                     <p className="text-lg text-slate-600 font-light leading-relaxed">
@@ -231,10 +277,35 @@ export default function Work() {
                   <section className="space-y-4">
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-px bg-slate-200" />
-                      <h3 className="text-xs uppercase tracking-[0.2em] font-bold text-slate-900">My Impact</h3>
+                      <h3 className="text-xs uppercase tracking-[0.2em] font-bold text-slate-900">What I Did</h3>
+                    </div>
+                    <ul className="space-y-3">
+                      {selectedProject.whatIDid?.map((item: string, i: number) => (
+                        <li key={i} className="flex gap-3 text-lg text-slate-600 font-light leading-relaxed">
+                          <span className="text-indigo-500 font-bold">•</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+
+                  <section className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-px bg-slate-200" />
+                      <h3 className="text-xs uppercase tracking-[0.2em] font-bold text-slate-900">Impact</h3>
                     </div>
                     <p className="text-lg text-slate-600 font-light leading-relaxed">
                       {selectedProject.impact}
+                    </p>
+                  </section>
+
+                  <section className="bg-indigo-50/50 p-8 rounded-3xl border border-indigo-100/50 space-y-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-px bg-indigo-200" />
+                      <h3 className="text-xs uppercase tracking-[0.2em] font-bold text-indigo-600">Key Insight</h3>
+                    </div>
+                    <p className="text-xl text-slate-900 font-medium italic leading-relaxed">
+                      "{selectedProject.keyInsight}"
                     </p>
                   </section>
                 </div>
@@ -249,9 +320,13 @@ export default function Work() {
                       <p className="text-xs text-slate-400">{selectedProject.role}</p>
                     </div>
                   </div>
-                  <span className="text-[10px] uppercase tracking-widest text-slate-300 font-bold">
-                    {selectedProject.category}
-                  </span>
+                  <div className="flex gap-2">
+                    {selectedProject.categories.map((cat: string) => (
+                      <span key={cat} className="text-[10px] uppercase tracking-widest text-slate-300 font-bold">
+                        {cat}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </motion.div>
