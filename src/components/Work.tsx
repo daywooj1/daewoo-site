@@ -7,7 +7,7 @@ const categories = ["All", "Builds", "Products", "Experiments"];
 const projects = [
   {
     id: 0,
-    title: "Arcadio: Multiplayer Mini-Game Platform",
+    title: "Arcadio: Mini-games",
     categories: ["Builds", "Experiments"],
     description: "I designed and built Arcadio end-to-end, a real-time multiplayer mobile game platform featuring fast, social mini-games.",
     appStoreLink: "https://apps.apple.com/us/app/arcadio/id6760566701",
@@ -27,7 +27,7 @@ const projects = [
   },
   {
     id: 1,
-    title: "CarGurus: Homepage & Dealership Mode",
+    title: "CarGurus: Dealership Mode",
     categories: ["Products"],
     description: "Scaling the top-of-funnel experience for the world's most visited automotive marketplace.",
     image: "/logo png.png",
@@ -44,7 +44,7 @@ const projects = [
   },
   {
     id: 2,
-    title: "Huckleberry: AI Parenting Assistant",
+    title: "Huckleberry: Parenting AI",
     categories: ["Products", "Experiments"],
     description: "Leading growth initiatives for a top-tier baby wellness app with over 1M monthly active users.",
     image: "huckleberry.png",
@@ -61,7 +61,7 @@ const projects = [
   },
   {
     id: 3,
-    title: "Marriott: Search & Booking Redesign",
+    title: "Marriott: Search Redesign",
     categories: ["Products"],
     description: "Modernizing the web experience for a global hospitality leader during a complex CMS migration.",
     image: "/marriott.png",
