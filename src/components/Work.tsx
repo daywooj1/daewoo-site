@@ -11,7 +11,7 @@ const projects = [
     categories: ["Builds", "Experiments"],
     description: "I designed and built Arcadio end-to-end, a real-time multiplayer mobile game platform featuring fast, social mini-games.",
     appStoreLink: "https://apps.apple.com/us/app/arcadio/id6760566701",
-    image: "/icon.png",
+    image: "/arcadio icon.png",
     modalImage: "/arcadio lobby.png",
     role: "Lead Product Owner & Designer & Engineer",
     problem: "Most mobile games are either overly complex or lack real-time social interaction. There’s a gap for quick, competitive, multiplayer experiences that feel lightweight but engaging.",
