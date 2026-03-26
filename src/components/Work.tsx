@@ -228,7 +228,6 @@ export default function Work() {
                 <div className="flex justify-between items-start mb-12">
                   <div className="space-y-2">
                     <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400">
-                      Executive Summary
                     </span>
                     <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
                       {selectedProject.title}
