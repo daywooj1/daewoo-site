@@ -86,7 +86,15 @@ export default function Hero() {
         }}
         className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10"
       >
-        <div className="flex flex-col items-center gap-4 cursor-pointer group">
+        <button 
+          onClick={() => {
+            const aboutSection = document.getElementById('about');
+            if (aboutSection) {
+              aboutSection.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}
+          className="flex flex-col items-center gap-4 cursor-pointer group bg-transparent border-none outline-none"
+        >
           <span className="text-[10px] uppercase tracking-[0.3em] text-slate-400 font-medium group-hover:text-slate-900 transition-colors">Scroll</span>
           <div className="w-[1px] h-12 bg-slate-200 relative overflow-hidden">
             <motion.div
@@ -101,7 +109,7 @@ export default function Hero() {
               className="absolute inset-0 bg-slate-400"
             />
           </div>
-        </div>
+        </button>
       </motion.div>
     </section>
   );

@@ -315,8 +315,8 @@ export default function Writing() {
   }, [isModalOpen]);
 
   return (
-    <section id="writing" className="bg-white border-t border-slate-200/40 py-24 md:py-32">
-      <div className="section-container space-y-20">
+    <section id="writing" className="bg-white border-t border-slate-200/40 py-16 md:py-20">
+      <div className="section-container space-y-12">
         {/* Header */}
         <div className="space-y-4">
           <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-slate-500">Writing</h2>
@@ -336,7 +336,7 @@ export default function Writing() {
           }}
           className="group relative bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-700"
         >
-          <div className="p-8 md:p-12 flex flex-col md:flex-row md:items-center justify-between gap-8 relative z-10">
+          <div className="p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div className="space-y-6 flex-1">
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
