@@ -16,7 +16,7 @@ const projects = [
     role: "Lead Product Owner & Designer & Engineer",
     problem: "Most mobile games are either overly complex or lack real-time social interaction. There’s a gap for quick, competitive, multiplayer experiences that feel lightweight but engaging.",
     whatIDid: [
-      "Built the entire app 0 to 1: Product concept, UX / UI design, Frontend (React Native + Expo), and Backend multiplayer logic.",
+      "Built the entire app from scratch: Product concept, UX / UI design, Frontend (React Native + Expo), and Backend multiplayer logic.",
       "Designed and developed multiple reaction-based, memory, and precision mini-games.",
       "Implemented real-time multiplayer systems including game state sync, round lifecycles, and latency handling.",
       "Focused heavily on game feel: reduced input lag, smoothed animations, and tuned haptic feedback loops.",
