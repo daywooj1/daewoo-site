@@ -104,8 +104,7 @@ export default function Work() {
   return (
     <section 
       id="work" 
-      className="bg-[#F8FAFC] border-t border-slate-200/40 relative overflow-hidden group/work py-24 md:py-32"
-      onMouseMove={handleMouseMove}
+      className="bg-[#F8FAFC] border-t border-slate-200/40 relative overflow-hidden group/work py-16 md:py-20"
     >
       {/* Spotlight Effect */}
       <div 
@@ -116,7 +115,7 @@ export default function Work() {
       />
       
       <div className="section-container relative z-10">
-        <div className="space-y-20">
+        <div className="space-y-12">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
             <div className="space-y-4">
               <h2 className="text-sm font-bold uppercase tracking-widest text-slate-400">Selected Work</h2>
