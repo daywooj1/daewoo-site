@@ -27,11 +27,28 @@ const projects = [
   },
   {
     id: 1,
+    title: "CarGurus: Homepage & Dealership Mode",
+    categories: ["Products"],
+    description: "Scaling the top-of-funnel experience for the world's most visited automotive marketplace.",
+    image: "/logo png.png",
+    modalImage: "/dealership mode.png",
+    role: "Lead Product Manager",
+    problem: "The product was a 'lead-gen machine' that became useless the moment a buyer actually stepped onto a dealership lot.",
+    whatIDid: [
+      "Overhauled the homepage with dynamic, behavior-based modules to drive re-engagement.",
+      "Shipped 'Dealership Mode' (0 to 1), providing contextual vehicle insights for users physically at the lot.",
+      "Shifted the product vision from 'finding a car' to 'navigating the entire purchase journey.'"
+    ],
+    impact: "Created a new high-intent engagement surface and strengthened long-term defensibility against pure-search competitors.",
+    keyInsight: "The highest-intent moment in car buying isn't the search; it's standing on the lot with the keys in hand."
+  },
+  {
+    id: 2,
     title: "Marriott: Search & Booking Redesign",
     categories: ["Products"],
     description: "Modernizing the web experience for a global hospitality leader during a complex CMS migration.",
     image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80&w=1000",
-    modalImage: "/dealership-mode.png",
+    modalImage: "/dealership mode.png",
     role: "Lead Product Manager",
     problem: "Fragmented search and map interfaces made hotel comparison exhausting, leading to high drop-off at the selection stage.",
     whatIDid: [
@@ -43,7 +60,7 @@ const projects = [
     keyInsight: "Booking friction isn't about a lack of options; it's about the cognitive load of comparing them."
   },
   {
-    id: 2,
+    id: 3,
     title: "Huckleberry: AI Parenting Assistant",
     categories: ["Products", "Experiments"],
     description: "Leading growth initiatives for a top-tier baby wellness app with over 1M monthly active users.",
@@ -58,23 +75,6 @@ const projects = [
     ],
     impact: "Significant boost in Day-30 retention and a 25% reduction in friction for daily logging events.",
     keyInsight: "Parents don't want more charts; they want an answer to 'What should I do right now?'"
-  },
-  {
-    id: 3,
-    title: "CarGurus: Homepage & Dealership Mode",
-    categories: ["Products"],
-    description: "Scaling the top-of-funnel experience for the world's most visited automotive marketplace.",
-    image: "/logo png.png",
-    modalImage: "/dealership-mode.png",
-    role: "Lead Product Manager",
-    problem: "The product was a 'lead-gen machine' that became useless the moment a buyer actually stepped onto a dealership lot.",
-    whatIDid: [
-      "Overhauled the homepage with dynamic, behavior-based modules to drive re-engagement.",
-      "Shipped 'Dealership Mode' (0 to 1), providing contextual vehicle insights for users physically at the lot.",
-      "Shifted the product vision from 'finding a car' to 'navigating the entire purchase journey.'"
-    ],
-    impact: "Created a new high-intent engagement surface and strengthened long-term defensibility against pure-search competitors.",
-    keyInsight: "The highest-intent moment in car buying isn't the search; it's standing on the lot with the keys in hand."
   },
 ];
 
