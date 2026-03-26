@@ -29,7 +29,7 @@ const projects = [
     id: 1,
     title: "CarGurus: Buyer Experience",
     categories: ["Products"],
-    description: "Scaling the top-of-funnel experience for the world's most visited automotive marketplace.",
+    description: "Scaling the core funnel experience for the world's most visited automotive marketplace app.",
     image: "/logo png.png",
     modalImage: "/dealership mode.png",
     role: "Lead Product Manager",
