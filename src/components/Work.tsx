@@ -12,6 +12,7 @@ const projects = [
     description: "I designed and built Arcadio end-to-end, a real-time multiplayer mobile game platform featuring fast, social mini-games.",
     appStoreLink: "https://apps.apple.com/us/app/arcadio/id6760566701",
     image: "/icon.png",
+    modalImage: "/public/dealership-mode.png",
     role: "Lead Product Manager & Designer",
     problem: "Most mobile games are either overly complex or lack real-time social interaction. There’s a gap for quick, competitive, multiplayer experiences that feel lightweight but engaging.",
     whatIDid: [
@@ -30,6 +31,7 @@ const projects = [
     categories: ["Products"],
     description: "Modernizing the web experience for a global hospitality leader during a complex CMS migration.",
     image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80&w=1000",
+    modalImage: "/public/dealership-mode.png",
     role: "Lead Product Manager",
     problem: "Fragmented search and map interfaces made hotel comparison exhausting, leading to high drop-off at the selection stage.",
     whatIDid: [
@@ -46,6 +48,7 @@ const projects = [
     categories: ["Products", "Experiments"],
     description: "Leading growth initiatives for a top-tier baby wellness app with over 1M monthly active users.",
     image: "huckleberry.png",
+    modalImage: "/public/wizzy.png",
     role: "Lead Product Manager",
     problem: "Parents were burnt out by manual logging and felt 'data-rich but insight-poor' regarding their child's needs.",
     whatIDid: [
@@ -62,6 +65,7 @@ const projects = [
     categories: ["Products"],
     description: "Scaling the top-of-funnel experience for the world's most visited automotive marketplace.",
     image: "/logo png.png",
+    modalImage: "/public/dealership-mode.png",
     role: "Lead Product Manager",
     problem: "The product was a 'lead-gen machine' that became useless the moment a buyer actually stepped onto a dealership lot.",
     whatIDid: [
@@ -215,7 +219,7 @@ export default function Work() {
               {/* Image Side */}
               <div className="hidden md:block w-2/5 relative">
                 <img 
-                  src={selectedProject.image} 
+                  src={selectedProject.modalImage} 
                   alt={selectedProject.title}
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
