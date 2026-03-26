@@ -61,7 +61,7 @@ const projects = [
     title: "CarGurus: Homepage & Dealership Mode",
     categories: ["Products"],
     description: "Scaling the top-of-funnel experience for the world's most visited automotive marketplace.",
-    image: "/cargurus.png",
+    image: "logo png.png",
     role: "Lead Product Manager",
     problem: "The product was a 'lead-gen machine' that became useless the moment a buyer actually stepped onto a dealership lot.",
     whatIDid: [
