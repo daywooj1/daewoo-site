@@ -370,7 +370,7 @@ export default function Writing() {
             </div>
 
             <div className="hidden md:flex items-center justify-center p-8 bg-slate-50 rounded-2xl border border-slate-100">
-              <BookOpen className="w-12 h-12 text-slate-200 group-hover:text-slate-900 transition-colors duration-500" />
+              <BookOpen className="w-12 h-12 text-slate-400 group-hover:text-slate-900 transition-colors duration-500" />
             </div>
           </div>
         </motion.div>
@@ -412,7 +412,7 @@ export default function Writing() {
                   className="group relative p-6 bg-white border border-slate-100 rounded-2xl hover:border-slate-300 hover:shadow-xl hover:shadow-slate-200/40 transition-all duration-500 cursor-pointer flex flex-col justify-between gap-6"
                 >
                   <div className="space-y-3">
-                    <div className="flex items-center gap-3 text-[9px] uppercase tracking-widest text-slate-400 font-bold">
+                    <div className="flex items-center gap-3 text-[9px] uppercase tracking-widest text-slate-600 font-bold">
                       <span className="text-slate-900 bg-slate-50 px-2 py-0.5 rounded">{article.category}</span>
                       <span className="w-1 h-1 rounded-full bg-slate-200" />
                       <span>{article.date}</span>
@@ -468,7 +468,7 @@ export default function Writing() {
                   onClick={() => setIsModalOpen(false)}
                   className="p-2 hover:bg-slate-100 rounded-full transition-colors group"
                 >
-                  <X className="w-5 h-5 text-slate-400 group-hover:text-slate-900 transition-colors" />
+                  <X className="w-5 h-5 text-slate-600 group-hover:text-slate-900 transition-colors" />
                 </button>
               </div>
 
