@@ -319,7 +319,7 @@ export default function Work() {
                       DJ
                     </div>
                     <div>
-                      <p className="text-sm font-bold text-slate-900">David Jeong</p>
+                      <p className="text-sm font-bold text-slate-900">Day Jeong</p>
                       <p className="text-xs text-slate-400">{selectedProject.role}</p>
                     </div>
                   </div>
